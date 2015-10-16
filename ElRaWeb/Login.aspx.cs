@@ -19,8 +19,8 @@ public partial class Login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        TextBox1.Text = "";
-        TextBox2.Text = "";
+        tbUsuario.Text = "";
+        tbPassword.Text = "";
     }
 
     protected void Button2_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ public partial class Login : System.Web.UI.Page
 
         try
         {
-            SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(Convert.ToInt32(TextBox1.Text), TextBox2.Text));
+            SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(Convert.ToInt32(tbUsuario.Text), tbPassword.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(Convert.ToString(SessionHelper.UsuarioAutenticado.idUsuario), false);
             Context.Items.Add("id_user", SessionHelper.UsuarioAutenticado.idUsuario);
             Context.Items.Add("idpermiso", SessionHelper.UsuarioAutenticado.idPermiso);

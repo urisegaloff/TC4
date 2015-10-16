@@ -1,36 +1,83 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
  <head>
 
      <title> Elra WEB </title>
 
      <link href="content/bootstrap.css" rel="Stylesheet" type="text/css"/>
+     <style>
+        body {
+            padding-top:70px;
+        }
+
+        .productsrow {
+            -moz-column-width: 18em;
+            -webkit-column-width: 18em;
+            -moz-column-gap: 1em;
+            -webkit-column-gap: 1em;
+        }
+  
+        .menu-category {
+            display: inline-block;
+            margin-bottom:  0.25rem;
+            padding:  1rem;
+            width:  100%; 
+        }
+
+        .product-image {
+            width: 100%;
+        }
+
+        .product {
+            padding-top:22px;  
+        }
+
+        .btn-product {
+            background-color:#222;
+            color:#eee;
+            border-radius:0;
+        }
+
+        .yellow {
+            color:yellow;
+            text-shadow:#ccc 1px 1px 0;
+        }
+     </style>
      <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 
  </head>
 
 <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="nbar-brand" href="#">Hola</a>
-            <div class="navbar-collapse collapse">
+        <div class="container" style="">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">ELRA</a>
+            </div>
+            <div class="collapse navbar-collapse" style="">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    
+                    <li class="active">
+                        <a href="#" class="" style="">Categorias</a>
+                     </li>
+                    <li>
+                        <a href="#" class="">Locales</a>
+                    </li>
+                    <li>
+                        <a href="#" class="">Contactanos</a>
+                    </li>
+                    <li>
+                        <a href="#modalLogIn" data-toggle="modal" data-target="#modalLogIn">Iniciar Sesión</a>
+                    </li>
                 </ul>
             </div>
+            <!--/.nav-collapse -->
         </div>
     </div>
 
@@ -46,7 +93,40 @@
          </asp:ContentPlaceHolder>
     </div>
 
-    <script src="scripts/jquery-1.9.1.js" type="text/jquery"></script>
-    <script src="scripts/bootstrap.min.js" type="text/jquery"></script>
+    <form id="formLogin" runat="server">
+        <div class="modal fade" id="modalLogIn">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">Iniciar Sesión</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sp1"">Usuario</span>  
+                                <asp:TextBox ID="tbUsuario" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="sp2">Contraseña</span>
+                                <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server"></asp:TextBox>
+                                <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>                       
+                            </div>
+                        </div>
+                            <p class="text-right"><a href="#">Recuperar contraseña</a></p>
+                        </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn">Cerrar</a>
+                        <a href="#" class="btn btn-primary">Log-in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
 </body>
 </html>
