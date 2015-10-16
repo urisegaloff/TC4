@@ -22,7 +22,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
     /// Propiedad o atributo público que me permite
     /// asignar un valor al atributo Text del label lblTitulo.
     /// </summary>
-    public string Titulo
+   /* public string Titulo
     {
         get
         {
@@ -32,5 +32,5 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             lblTitulo.Text = value;
         }
-    }
+    }*/
 }

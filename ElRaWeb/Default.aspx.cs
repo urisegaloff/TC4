@@ -12,7 +12,7 @@ public partial class _Default : System.Web.UI.Page
     private int idPermiso;
     protected void Page_Load(object sender, EventArgs e)
     {
-        Master.Titulo = "Menu Usuario";
+        
         if (!Page.IsPostBack)
         {
             idUsuario = Convert.ToInt32(Context.Items["id_user"].ToString());

@@ -3,8 +3,10 @@
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContenido" Runat="Server">
-    <asp:Menu ID="Menu1" runat="server">
-    </asp:Menu>
+    <br />
+    <br />
+    <br />
+
     <table>
         <tr>
             <td>Configuración 1:</td>

@@ -3,22 +3,50 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
+ <head>
+
+     <title> Elra WEB </title>
+
+     <link href="content/bootstrap.css" rel="Stylesheet" type="text/css"/>
+     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+ </head>
+
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="cphTitulo" runat="server">
-            <br />
-            <asp:Label ID="lblTitulo" runat="server" Text=""></asp:Label>
-            <br />
-            <hr />
-        </asp:ContentPlaceHolder>
-        <asp:ContentPlaceHolder id="cphContenido" runat="server">
-        </asp:ContentPlaceHolder>
-        <asp:ContentPlaceHolder id="cphVolver" runat="server">
-            <hr />
-            <asp:LinkButton ID="lnkVolver" runat="server" CausesValidation="false" onclick="lnkVolver_Click">Cerrar Sesion</asp:LinkButton>
-        </asp:ContentPlaceHolder>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="nbar-brand" href="#">Hola</a>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    
+                </ul>
+            </div>
+        </div>
     </div>
-    </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    
+    <div class="container">
+         <asp:ContentPlaceHolder ID="cphContenido" runat="server">
+             
+
+         </asp:ContentPlaceHolder>
+    </div>
+
+    <script src="scripts/jquery-1.9.1.js" type="text/jquery"></script>
+    <script src="scripts/bootstrap.min.js" type="text/jquery"></script>
 </body>
 </html>
