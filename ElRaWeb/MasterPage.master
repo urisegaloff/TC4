@@ -9,7 +9,15 @@
 
      <link href="content/bootstrap.css" rel="Stylesheet" type="text/css"/>
      <style>
+         html { 
+            
+        }
         body {
+            background: url(http://kcoletrodesign.com/wordpress/wp-content/uploads/2014/04/dreamstime_l_34259408.jpg) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
             padding-top:70px;
         }
 
@@ -50,12 +58,9 @@
             text-shadow:#ccc 1px 1px 0;
         }
      </style>
-     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+     <asp:ContentPlaceHolder ID="cphHeader" runat="server"></asp:ContentPlaceHolder>
 
- </head>
-
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -79,13 +84,10 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="">Locales</a>
+                        <a href="ComoComprar.aspx" class="">Cómo comprar</a>
                     </li>
                     <li>
-                        <a href="#" class="">Cómo comprar</a>
-                    </li>
-                    <li>
-                        <a href="#" class="">Contacto</a>
+                        <a href="About.aspx" class="">Contacto</a>
                     </li>
 
                 </ul>
@@ -102,13 +104,13 @@
         </div>
     </div>
 
-    <br />
-    <br />
-    <br />
-    <br />
+ </head>
+
+<body>
+    
     
     <div class="container">
-         <asp:ContentPlaceHolder ID="cphContenido" runat="server">
+         <asp:ContentPlaceHolder ID="cphBody" runat="server">
              
 
          </asp:ContentPlaceHolder>
