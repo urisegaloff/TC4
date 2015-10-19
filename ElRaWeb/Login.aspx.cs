@@ -23,7 +23,7 @@ public partial class Login : System.Web.UI.Page
         tbPassword.Text = "";
     }
 
-    protected void Button2_Click(object sender, EventArgs e)
+    protected void btnIniciarSesion_Click(object sender, EventArgs e)
     {
         Label1.Text = "Usuario inexistente";
     }
