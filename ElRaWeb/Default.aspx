@@ -41,13 +41,15 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
+    <table>
+        <tr>
+        <td>Configuración 1:</td>
+        <td><asp:Label runat="server" ID="lblConfig1"></asp:Label></td>
+        </tr>
+    </table>         
 </div>
     
     <!--<table>
-        <tr>
-            <td>Configuración 1:</td>
-            <td><asp:Label runat="server" ID="lblConfig1"></asp:Label></td>
-        </tr>
         <tr>
             <td>Configuración 2:</td>
             <td><asp:Label runat="server" ID="lblConfig2"></asp:Label></td>

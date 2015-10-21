@@ -17,11 +17,12 @@ namespace ElRaBusiness
             daUsuario = new UsuarioDA();
         }
 
-        public UsuarioEntity Autenticar(int idUsuario, string password)
+
+        public UsuarioEntity Autenticar(string email, string password)
         {
             try
             {
-                UsuarioEntity usuario = daUsuario.BuscarUsuario(idUsuario, password);
+                UsuarioEntity usuario = daUsuario.BuscarUsuario(email, password);
 
                 if (usuario == null)
                     throw new AutenticacionExcepcionBO();
@@ -30,7 +31,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se pudo realizar la autenticación del usuario.", ex);
+                throw new ExcepcionBO("No se pudo realizar la registración del usuario.", ex);
             }
         }
 

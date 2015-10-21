@@ -4,9 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ElRaBusiness;
+using ElRaEntity;
+using ElRaWebUtil;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+    private UsuarioBO boUsuario = new UsuarioBO();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -17,7 +21,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
         //Redirigir la navegación a otra página
         Response.Redirect("Login.aspx");
     }
-
     /// <summary>
     /// Propiedad o atributo público que me permite
     /// asignar un valor al atributo Text del label lblTitulo.

@@ -25,7 +25,25 @@ public partial class Login : System.Web.UI.Page
 
     protected void btnIniciarSesion_Click(object sender, EventArgs e)
     {
-        Label1.Text = "Usuario inexistente";
+        //Label1.Text = "Usuario inexistente";
+        /*
+        Context.Items.Add("Valor1", TextBox1.Text);
+        //Se transfiere la ejecución a la siguiente página.
+        Server.Transfer("Prueba.aspx");
+        */
+
+        try
+        {
+            SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbUsuario.Text, tbPassword.Text));
+            //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(Convert.ToString(SessionHelper.UsuarioAutenticado.idUsuario), false);
+            Context.Items.Add("id_user", SessionHelper.UsuarioAutenticado.idUsuario);
+            Context.Items.Add("idpermiso", SessionHelper.UsuarioAutenticado.idPermiso);
+            Server.Transfer("Default.aspx");
+        }
+        catch (AutenticacionExcepcionBO ex)
+        {
+            WebHelper.MostrarMensaje(Page, ex.Message);
+        }
     }
 
     protected void Button3_Click(object sender, EventArgs e)
@@ -35,7 +53,7 @@ public partial class Login : System.Web.UI.Page
         //Se transfiere la ejecución a la siguiente página.
         Server.Transfer("Prueba.aspx");
         */
-
+        /*
         try
         {
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(Convert.ToInt32(tbUsuario.Text), tbPassword.Text));
@@ -48,5 +66,6 @@ public partial class Login : System.Web.UI.Page
         {
             WebHelper.MostrarMensaje(Page, ex.Message);
         }
+         */
     }
 }

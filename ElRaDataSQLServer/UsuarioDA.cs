@@ -53,8 +53,8 @@ namespace ElRaDataSQLServer
                         comando.Parameters["@UsuarioEmail"].Value = usuario.mail.Trim();
                         comando.Parameters["@UsuarioPassword"].Value = usuario.password.Trim();
                         comando.Parameters["@UsuarioTel"].Value = usuario.telefono.Trim();
-                        comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;
-                        comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();
+                        /*comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;*/
+                        /*comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();*/
 
 
                         //comando.Parameters["@UsuarioFechaRegistracion"].Value = usuario.FechaRegistracion;
@@ -134,7 +134,7 @@ namespace ElRaDataSQLServer
             }
         }
 
-        public UsuarioEntity BuscarUsuario(int idUsuario, string password)
+        public UsuarioEntity BuscarUsuario(string email, string password)
         {
             try
             {
@@ -142,12 +142,12 @@ namespace ElRaDataSQLServer
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("UsuarioBuscarPorIdPassword", conexion))
+                    using (SqlCommand comando = new SqlCommand("UsuarioBuscarPorEmailPassword", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@UsuarioID"].Value = idUsuario;
+                        comando.Parameters["@UsuarioEmail"].Value = email.Trim();
                         comando.Parameters["@UsuarioPassword"].Value = password.Trim();
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
@@ -156,16 +156,19 @@ namespace ElRaDataSQLServer
                             {
                                 usuario = CrearUsuario(cursor);
                             }
+
                             cursor.Close();
                         }
                     }
+
                     conexion.Close();
                 }
+
                 return usuario;
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al buscar por Id y contraseña.", ex);
+                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
         #endregion Métodos Públicos

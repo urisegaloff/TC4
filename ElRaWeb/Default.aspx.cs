@@ -13,12 +13,12 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         
-       /* if (!Page.IsPostBack)
+       if (!Page.IsPostBack)
         {
             idUsuario = Convert.ToInt32(Context.Items["id_user"].ToString());
             idPermiso = Convert.ToInt32(Context.Items["idpermiso"].ToString());
             lblConfig1.Text = Convert.ToString(idUsuario);
-            lblConfig2.Text = Convert.ToString(idPermiso);
-        }*/
+            //lblConfig2.Text = Convert.ToString(idPermiso);
+        }
     }
 }
