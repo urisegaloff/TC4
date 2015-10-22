@@ -31,7 +31,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se pudo realizar la registración del usuario.", ex);
+                throw new ExcepcionBO("No se encontró el usuario.", ex);
             }
         }
 

@@ -36,8 +36,7 @@ namespace ElRaEntity
                 mail.Trim() == "" ||
                 password.Trim() == "" ||
                 telefono.Trim() == "" ||
-                domicilio.Trim() == "" ||
-                idPermiso <= 0)
+                domicilio.Trim() == "")
             {
                 throw new DatosObligatoriosExcepcion();
             }

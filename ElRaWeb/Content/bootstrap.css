@@ -6290,6 +6290,8 @@ button.close {
   position: relative;
   width: 100%;
   overflow: hidden;
+    top: -76px;
+    left: 1px;
 }
 .carousel-inner > .item {
   position: relative;

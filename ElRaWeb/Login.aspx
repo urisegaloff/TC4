@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
     <div class="container-fluid">
-        <form class="form-inline " id="formLogin" runat="server">
+        <div class="form-inline " id="formLogin" runat="server">
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
@@ -16,14 +16,14 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Usuario</span>
-                                    <asp:TextBox ID="tbUsuario" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbUsuario" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <br /><br />
                             <div class="form-group"> 
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp2">Contraseña</span>
-                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server"></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </asp:Content>
 

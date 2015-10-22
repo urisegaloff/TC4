@@ -16,6 +16,29 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     }
 
+    protected void btnIniciarSesionMP_Click(object sender, EventArgs e)
+    {
+        //Label1.Text = "Usuario inexistente";
+        /*
+        Context.Items.Add("Valor1", TextBox1.Text);
+        //Se transfiere la ejecución a la siguiente página.
+        Server.Transfer("Prueba.aspx");
+        */
+
+        try
+        {
+            SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbUsuarioMP.Text, tbPasswordMP.Text));
+            //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(Convert.ToString(SessionHelper.UsuarioAutenticado.idUsuario), false);
+            Context.Items.Add("e_mail", SessionHelper.UsuarioAutenticado.mail);
+            Context.Items.Add("idpermiso", SessionHelper.UsuarioAutenticado.idPermiso);
+            Server.Transfer("Default.aspx");
+        }
+        catch (AutenticacionExcepcionBO ex)
+        {
+            WebHelper.MostrarMensaje(Page, ex.Message);
+        }
+    }
+
     protected void lnkVolver_Click(object sender, EventArgs e)
     {
         //Redirigir la navegación a otra página

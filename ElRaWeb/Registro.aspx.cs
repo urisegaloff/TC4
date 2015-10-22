@@ -25,11 +25,16 @@ public partial class Registro : System.Web.UI.Page
             usuario.apellido = tbApellido.Text;
             usuario.mail = tbMail.Text;
             usuario.password = tbPassword.Text;
+            usuario.domicilio = tbDomicilio.Text;
+            usuario.telefono = tbTelefono.Text;
             
             boUsuario.Registrar(usuario, tbMail.Text);
 
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbMail.Text, tbPassword.Text));
-            System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.mail, false);
+            /*System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.mail, false);*/
+            Context.Items.Add("e_mail", SessionHelper.UsuarioAutenticado.mail);
+            Context.Items.Add("idpermiso", SessionHelper.UsuarioAutenticado.idPermiso);
+            Server.Transfer("Default.aspx");
         }
         catch (ValidacionExcepcionAbstract ex)
         {

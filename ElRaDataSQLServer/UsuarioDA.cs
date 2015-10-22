@@ -43,7 +43,7 @@ namespace ElRaDataSQLServer
             {
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("UsuarioInsert", conexion))
+                    using (SqlCommand comando = new SqlCommand("CrearUsuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
@@ -52,15 +52,15 @@ namespace ElRaDataSQLServer
                         comando.Parameters["@UsuarioApellido"].Value = usuario.apellido.Trim();
                         comando.Parameters["@UsuarioEmail"].Value = usuario.mail.Trim();
                         comando.Parameters["@UsuarioPassword"].Value = usuario.password.Trim();
-                        comando.Parameters["@UsuarioTel"].Value = usuario.telefono.Trim();
+                        comando.Parameters["@UsuarioTelefono"].Value = usuario.telefono.Trim();
                         /*comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;*/
-                        /*comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();*/
+                        comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();
 
 
                         //comando.Parameters["@UsuarioFechaRegistracion"].Value = usuario.FechaRegistracion;
                         comando.ExecuteNonQuery();
 
-                        usuario.idUsuario = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);                        
+                        /*usuario.idUsuario = Convert.ToInt32(comando.Parameters["@RETURN_VALUE"].Value);*/                        
                     }
                     conexion.Close();
                 }
@@ -119,7 +119,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@UsuarioEmail"].Value = mail.Trim();
+                        comando.Parameters["@mail"].Value = mail.Trim();
                         existeEmail = Convert.ToBoolean(comando.ExecuteScalar());
                     }
 

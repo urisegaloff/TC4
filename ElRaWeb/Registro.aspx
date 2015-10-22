@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
     <div class="container-fluid">
-        <form class="form-inline " id="formRegistro" runat="server" >
+        <div class="form-inline " id="formRegistro" runat="server" >
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </asp:Content>
 
