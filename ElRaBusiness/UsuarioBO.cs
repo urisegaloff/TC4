@@ -17,6 +17,18 @@ namespace ElRaBusiness
             daUsuario = new UsuarioDA();
         }
 
+        public List<UsuarioEntity> Buscar(string email, string nombre, string apellido)
+        {
+            try
+            {
+                return daUsuario.Buscar(email, nombre, apellido);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del usuario.", ex);                
+            }
+        }
+
 
         public UsuarioEntity Autenticar(string email, string password)
         {

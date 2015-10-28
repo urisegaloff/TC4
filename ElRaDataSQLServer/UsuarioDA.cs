@@ -17,7 +17,7 @@ namespace ElRaDataSQLServer
         {
         }
 
-        #region Métodos Privados
+        #region Métodos Privados      
         private UsuarioEntity CrearUsuario(SqlDataReader cursor)
         {
             UsuarioEntity usuario = new UsuarioEntity();
@@ -171,6 +171,48 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
+
+
+        public List<UsuarioEntity> Buscar(string email, string nombre, string apellido)
+        {
+            // Lista de objetos con datos de empleados.
+            List<UsuarioEntity> usuarios = null;
+            try
+            {
+                UsuarioEntity usuario = null;
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("UsuarioBuscar", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UsuarioEmail"].Value = email.Trim();
+                        comando.Parameters["@UsuarioNombre"].Value = nombre.Trim();
+                        comando.Parameters["@UsuarioApellido"].Value = apellido.Trim();
+
+
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            usuarios = new List<UsuarioEntity>();
+                            while (cursor.Read())
+                            {
+                                usuarios.Add(CrearUsuario(cursor));
+                            }
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
+            }
+        } 
+
         #endregion Métodos Públicos
     }
 }
