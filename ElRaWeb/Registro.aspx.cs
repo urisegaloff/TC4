@@ -14,7 +14,27 @@ public partial class Registro : System.Web.UI.Page
     private UsuarioBO boUsuario = new UsuarioBO();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (Context.Items.Contains("Usuario")) 
+        {
+            UsuarioEntity entidad = (UsuarioEntity)Context.Items["Usuario"];
+            
+            tbApellido.Text = entidad.apellido;
+            tbNombre.Text = entidad.nombre;
+            tbTelefono.Text = entidad.telefono;
+            tbMail.Text = entidad.mail;
+            tbDomicilio.Text = entidad.domicilio;
+            tbPassword.Text = entidad.password;
+            
+            // Se deshabilita la carga del legajo porque es clave primaria.
+            tbMail.Enabled = false;
+            ViewState.Add("Nuevo", false);            
+        }
+        else
+        {
+            // Se agrega en el objeto ViewState una entrada que indica
+            // que el empleado es nuevo.
+            ViewState.Add("Nuevo", true);
+        }
     }
     protected void btnRegistro_Click(object sender, EventArgs e)
     {
@@ -27,9 +47,16 @@ public partial class Registro : System.Web.UI.Page
             usuario.password = tbPassword.Text;
             usuario.domicilio = tbDomicilio.Text;
             usuario.telefono = tbTelefono.Text;
-            
-            boUsuario.Registrar(usuario, tbMail.Text);
 
+
+            if (Convert.ToBoolean(ViewState["Nuevo"]))
+            {
+                boUsuario.Registrar(usuario, tbMail.Text);
+            }
+            else
+            {
+                boUsuario.Actualizar(usuario);
+            } 
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbMail.Text, tbPassword.Text));
             /*System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.mail, false);*/
             Context.Items.Add("e_mail", SessionHelper.UsuarioAutenticado.mail);
