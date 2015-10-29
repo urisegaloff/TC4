@@ -71,30 +71,25 @@ namespace ElRaDataSQLServer
             }
         }
 
-        public void Actualizar(int id, string nombreArchivo, byte[] archivoFoto)
+        public void Actualizar(UsuarioEntity usuario)
         {
             try
             {
-                FileInfo infoArchivo = new FileInfo(nombreArchivo);
-
-                string rutaFotos = ConfigurationManager.AppSettings["RutaFotos"];
-                string nuevoNombreArchivo = id.ToString() + infoArchivo.Extension;
-
-                using (FileStream archivo = File.Create(rutaFotos + nuevoNombreArchivo))
-                {
-                    archivo.Write(archivoFoto, 0, archivoFoto.Length);
-                    archivo.Close();
-                }
-
-                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
-                {                    
-                    using (SqlCommand comando = new SqlCommand("UsuarioActualizarFoto", conexion))
+               using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+               {                    
+                    using (SqlCommand comando = new SqlCommand("ActualizarUsuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@UsuarioID"].Value = id;
-                        comando.Parameters["@UsuarioFoto"].Value = nuevoNombreArchivo;
+                        comando.Parameters["@UsuarioNombre"].Value = usuario.nombre.Trim();
+                        comando.Parameters["@UsuarioApellido"].Value = usuario.apellido.Trim();
+                        comando.Parameters["@UsuarioEmail"].Value = usuario.mail.Trim();
+                        comando.Parameters["@UsuarioPassword"].Value = usuario.password.Trim();
+                        comando.Parameters["@UsuarioTelefono"].Value = usuario.telefono.Trim();
+                        /*comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;*/
+                        comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();
+
                         comando.ExecuteNonQuery();
                     }
                     conexion.Close();
@@ -102,7 +97,7 @@ namespace ElRaDataSQLServer
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al actualizar la foto.", ex);
+                throw new ExcepcionDA("Se produjo un error al actualizar el usuario.", ex);
             }
         }
 
@@ -183,7 +178,7 @@ namespace ElRaDataSQLServer
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("UsuarioBuscar", conexion))
+                    using (SqlCommand comando = new SqlCommand("BuscarUsuario", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
@@ -191,7 +186,6 @@ namespace ElRaDataSQLServer
                         comando.Parameters["@UsuarioEmail"].Value = email.Trim();
                         comando.Parameters["@UsuarioNombre"].Value = nombre.Trim();
                         comando.Parameters["@UsuarioApellido"].Value = apellido.Trim();
-
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

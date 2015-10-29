@@ -47,6 +47,32 @@ namespace ElRaBusiness
             }
         }
 
+        public void Actualizar(UsuarioEntity entidad)
+        {
+            try
+            {
+                // Valida los datos cargados por el usuario.
+                //Validar(entidad);
+
+                // Si el empleado no existe en la base de datos...
+                /*
+                if (daUsuario.BuscarPorClavePrimaria(entidad.mail) == null)
+                {
+                    // ...se lanza la excepción correspondiente.
+                    //throw new UsuarioNoExisteException(entidad.Legajo);
+                }
+                 */
+
+                // Si existe, se actualizan los datos.
+                daUsuario.Actualizar(entidad);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error", ex);
+            }
+        }
+
+
         public void Registrar(UsuarioEntity usuario, string emailVerificacion)
         {
             try
