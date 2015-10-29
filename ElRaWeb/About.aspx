@@ -12,7 +12,6 @@
 </asp:Content>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="cphBody">
-    <form id="formContacto" runat="server">
     <div class="col-lg-5">
         <div class="panel panel-primary ">
             <div class="panel-heading">
@@ -40,7 +39,7 @@
                             <asp:Label ID="lblNombreContacto" for="tbNombreContacto" runat="server" Text="Nombre"></asp:Label>
                         </div>
                         <div class="col-lg-6">
-                            <asp:TextBox ID="tbNombreContacto" class="form-control" size="10" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbNombreContacto" class="form-control" placeholder="Tu vieja" size="10" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -97,5 +96,4 @@
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQhMp21NhC70iRdXW92nnO96p_lPy36Ag&signed_in=true&callback=initMap"></script>
 
-    </form>
 </asp:Content>

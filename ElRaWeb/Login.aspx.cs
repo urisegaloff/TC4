@@ -12,6 +12,30 @@ using ElRaWebUtil;
 public partial class Login : System.Web.UI.Page
 {
     private UsuarioBO boUsuario = new UsuarioBO();
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            MasterPageFile = "~/MasterPage.master";
+        }
+        else
+        {
+            Server.Transfer("Default.aspx",true);
+        }
+    }
+
+    public bool checkLogin()
+    {
+        if (Context.Items["e_mail"] != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 

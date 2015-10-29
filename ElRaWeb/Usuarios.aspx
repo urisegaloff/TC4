@@ -4,12 +4,12 @@
     
 </asp:Content>
 <asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
-    <div class="container-fluid">
-        <div class="form-inline " id="formUsuarios" runat="server" >
-            <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
+     <div class="form-inline " id="formUsuarios" runat="server" >
+        <div class="panel-group">
+            <div class="col-xs-4 ">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Login</h4>
+                        <h4 class="h4">Buscar Usuario</h4>
                     </div>
                       <div class="panel-body">                    
                             <div class="form-group">
@@ -41,20 +41,24 @@
                         </div>
                     </div>
                     <div class ="panel-footer">
-                        <asp:GridView id="dgResultados" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="Legajo">
-					        <Columns>
+                        
+                   </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
+                            <Columns>
                                 <asp:CommandField EditText="Editar" ShowEditButton="True" />
                                 <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-						        <asp:BoundField DataField="Correo" HeaderText="Legajo"></asp:BoundField>
-						        <asp:BoundField DataField="Apellido" HeaderText="Apellido"></asp:BoundField>
-						        <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
-					        </Columns>
-				        </asp:GridView>
-                   </div>
-
-
-
-
+                                <asp:BoundField DataField="mail" HeaderText="E-Mail"></asp:BoundField>
+                                <asp:BoundField DataField="Apellido" HeaderText="Apellido"></asp:BoundField>
+                                <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </div>
             </div>
         </div>

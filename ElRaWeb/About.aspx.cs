@@ -7,6 +7,29 @@ using System.Web.UI.WebControls;
 
 public partial class About : System.Web.UI.Page
 {
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            MasterPageFile = "~/MasterPage.master";
+        }
+        else
+        {
+            MasterPageFile = "~/MasterPageAutenticado.master";
+        }
+    }
+
+    public bool checkLogin()
+    {
+        if (Context.Items["e_mail"] != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
 

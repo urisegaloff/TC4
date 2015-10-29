@@ -128,14 +128,14 @@
                         <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Usuario</span>
-                                    <asp:TextBox ID="tbUsuarioMP" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbUsuarioMP" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <br /><br />
                             <div class="form-group"> 
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp2">Contraseña</span>
-                                    <asp:TextBox ID="tbPasswordMP" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbPasswordMP" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server"></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>

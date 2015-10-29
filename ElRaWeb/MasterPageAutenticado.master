@@ -92,10 +92,10 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#modalLogIn" data-toggle="modal" data-target="#modalLogIn">Iniciar Sesión</a>
+                        <a href="#">Logueado</a>
                     </li>
                     <li>
-                        <a href="Registro.aspx" class="">Registrate</a>
+                        <a href="#" class="">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>

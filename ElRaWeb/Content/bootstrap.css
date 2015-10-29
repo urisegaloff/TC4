@@ -6283,15 +6283,11 @@ button.close {
 }
 .carousel {
   position: relative;
-    top: 124px;
-    left: -6px;
 }
 .carousel-inner {
   position: relative;
   width: 100%;
   overflow: hidden;
-    top: -76px;
-    left: 1px;
 }
 .carousel-inner > .item {
   position: relative;
@@ -6468,6 +6464,7 @@ button.close {
 }
 .carousel-caption {
   position: absolute;
+  right: 15%;
   bottom: 20px;
   left: 15%;
   z-index: 10;

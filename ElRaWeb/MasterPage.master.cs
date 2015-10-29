@@ -10,11 +10,15 @@ using ElRaWebUtil;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    private UsuarioBO boUsuario = new UsuarioBO();
+
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
+
+    private UsuarioBO boUsuario = new UsuarioBO();
 
     protected void btnIniciarSesionMP_Click(object sender, EventArgs e)
     {
