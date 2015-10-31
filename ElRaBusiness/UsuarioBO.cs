@@ -25,7 +25,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error en la búsqueda del usuario.", ex);                
+                throw new ExcepcionBO("Error en la búsqueda del Usuario.", ex);                
             }
         }
 
@@ -34,16 +34,16 @@ namespace ElRaBusiness
         {
             try
             {
-                UsuarioEntity usuario = daUsuario.BuscarUsuario(email, password);
+                UsuarioEntity Usuario = daUsuario.BuscarUsuario(email, password);
 
-                if (usuario == null)
+                if (Usuario == null)
                     throw new AutenticacionExcepcionBO();
 
-                return usuario;
+                return Usuario;
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se encontró el usuario.", ex);
+                throw new ExcepcionBO("No se encontró el Usuario.", ex);
             }
         }
 
@@ -51,7 +51,7 @@ namespace ElRaBusiness
         {
             try
             {
-                // Valida los datos cargados por el usuario.
+                // Valida los datos cargados por el Usuario.
                 //Validar(entidad);
 
                 // Si el empleado no existe en la base de datos...
@@ -73,23 +73,23 @@ namespace ElRaBusiness
         }
 
 
-        public void Registrar(UsuarioEntity usuario, string emailVerificacion)
+        public void Registrar(UsuarioEntity Usuario, string emailVerificacion)
         {
             try
             {
-                usuario.ValidarDatos();
+                Usuario.ValidarDatos();
 
-                if (daUsuario.ExisteEmail(usuario.mail))
+                if (daUsuario.ExisteEmail(Usuario.mail))
                     throw new EmailExisteExcepcionBO();
 
-                if (usuario.mail != emailVerificacion.Trim())
+                if (Usuario.mail != emailVerificacion.Trim())
                     throw new VerificacionEmailExcepcionBO();
 
-                daUsuario.Insertar(usuario);
+                daUsuario.Insertar(Usuario);
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se pudo realizar la registración del usuario.", ex);
+                throw new ExcepcionBO("No se pudo realizar la registración del Usuario.", ex);
             }
         }
     }

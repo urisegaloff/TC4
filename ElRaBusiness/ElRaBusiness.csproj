@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticuloBO.cs" />
     <Compile Include="AutenticacionExcepcionBO.cs" />
     <Compile Include="EmailExisteExcepcionBO.cs" />
     <Compile Include="ExcepcionBO.cs" />
