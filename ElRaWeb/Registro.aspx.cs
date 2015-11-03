@@ -4,6 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web.Security;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
 using ElRaBusiness;
 using ElRaEntity;
 using ElRaComun;
@@ -37,27 +43,31 @@ public partial class Registro : System.Web.UI.Page
     private UsuarioBO boUsuario = new UsuarioBO();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Context.Items.Contains("Usuario")) 
+        if (!Page.IsPostBack)
         {
-            UsuarioEntity entidad = (UsuarioEntity)Context.Items["Usuario"];
-            
-            tbApellido.Text = entidad.apellido;
-            tbNombre.Text = entidad.nombre;
-            tbTelefono.Text = entidad.telefono;
-            tbMail.Text = entidad.mail;
-            tbDomicilio.Text = entidad.domicilio;
-            tbPassword.Text = entidad.password;
-            
-            // Se deshabilita la carga del legajo porque es clave primaria.
-            tbMail.Enabled = false;
-            ViewState.Add("Nuevo", false);            
+            if (Context.Items.Contains("Usuario"))
+            {
+                UsuarioEntity entidad = (UsuarioEntity)Context.Items["Usuario"];
+
+                tbApellido.Text = entidad.apellido;
+                tbNombre.Text = entidad.nombre;
+                tbTelefono.Text = entidad.telefono;
+                tbMail.Text = entidad.mail;
+                tbDomicilio.Text = entidad.domicilio;
+                tbPassword.Text = entidad.password;
+
+                // Se deshabilita la carga del legajo porque es clave primaria.
+                tbMail.Enabled = false;
+                ViewState.Add("Nuevo", false);
+            }
+            else
+            {
+                // Se agrega en el objeto ViewState una entrada que indica
+                // que el empleado es nuevo.
+                ViewState.Add("Nuevo", true);
+            }
         }
-        else
-        {
-            // Se agrega en el objeto ViewState una entrada que indica
-            // que el empleado es nuevo.
-            ViewState.Add("Nuevo", true);
-        }
+
     }
     protected void btnRegistro_Click(object sender, EventArgs e)
     {
@@ -79,6 +89,8 @@ public partial class Registro : System.Web.UI.Page
             else
             {
                 boUsuario.Actualizar(usuario);
+                Context.Items.Add("MostrarTodos", "S");
+                Server.Transfer("Usuarios.aspx");
             } 
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbMail.Text, tbPassword.Text));
             /*System.Web.Security.FormsAuthentication.RedirectFromLoginPage(SessionHelper.UsuarioAutenticado.mail, false);*/

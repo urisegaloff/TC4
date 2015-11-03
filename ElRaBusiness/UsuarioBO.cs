@@ -29,6 +29,18 @@ namespace ElRaBusiness
             }
         }
 
+        public UsuarioEntity BuscarPorClavePrimaria(string email)
+        {
+            try
+            {
+                return daUsuario.BuscarPorClavePrimaria(email);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del Usuario.", ex);
+            }
+        }
+
 
         public UsuarioEntity Autenticar(string email, string password)
         {

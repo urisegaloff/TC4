@@ -14,7 +14,13 @@ public partial class Usuarios : System.Web.UI.Page
     private UsuarioBO boUsuario = new UsuarioBO();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!Page.IsPostBack)
+        {
+            if (Context.Items["MostrarTodos"] == "S")
+            {
+                BuscarUsuarios();
+            }
+        }
     }
 
 
@@ -52,7 +58,7 @@ public partial class Usuarios : System.Web.UI.Page
     {
         try
         {
-            Context.Items.Add("Usuario", boUsuario.Buscar(dgResultados.DataKeys[e.NewEditIndex].Value.ToString(), "", ""));
+            Context.Items.Add("Usuario", boUsuario.BuscarPorClavePrimaria(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
             // Se transfiere la ejecución a la página de carga y modificación de empleado.
             Server.Transfer("Registro.aspx");
         }

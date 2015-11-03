@@ -168,6 +168,44 @@ namespace ElRaDataSQLServer
         }
 
 
+        public UsuarioEntity BuscarPorClavePrimaria(string email)
+        {
+            try
+            {
+                UsuarioEntity usuario = null;
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("UsuarioBuscarPorEmail", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@mail"].Value = email.Trim();
+                        
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            if (cursor.Read())
+                            {
+                                usuario = CrearUsuario(cursor);
+                            }
+
+                            cursor.Close();
+                        }
+                    }
+
+                    conexion.Close();
+                }
+
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
+            }
+        }
+
+
         public List<UsuarioEntity> Buscar(string email, string nombre, string apellido)
         {
             // Lista de objetos con datos de empleados.
@@ -178,7 +216,7 @@ namespace ElRaDataSQLServer
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("BuscarUsuario", conexion))
+                    using (SqlCommand comando = new SqlCommand("UsuarioBuscar", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);

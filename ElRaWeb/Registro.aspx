@@ -20,8 +20,8 @@
                             </div>
                             <div class="form-group"> 
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp2">Contraseña</span>
-                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp2" TextMode="Password" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp1">Contraseña</span>
+                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp1" TextMode="Password" runat="server" required="true"></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>
