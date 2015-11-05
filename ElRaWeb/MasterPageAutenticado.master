@@ -59,7 +59,14 @@
      </style>
      <asp:ContentPlaceHolder ID="cphHeader" runat="server"></asp:ContentPlaceHolder>
 
-     <div class="navbar navbar-inverse navbar-fixed-top">
+     
+
+ </head>
+
+<body>
+    
+     <form runat="server">
+    <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container" style="">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -92,10 +99,10 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">Logueado</a>
+                        <a href="#"><asp:Label runat="server" ID="lblPerfil"></asp:Label></a>
                     </li>
                     <li>
-                        <a href="#" class="">Cerrar Sesion</a>
+                        <asp:LinkButton ID="lbtnPerfil" OnClick="lbtnPerfil_Click" runat="server">Cerrar Sesións</asp:LinkButton>
                     </li>
                 </ul>
             </div>
@@ -103,11 +110,7 @@
         </div>
     </div>
 
- </head>
-
-<body>
-    
-    <form>
+   
     <div class="container">
          <asp:ContentPlaceHolder ID="cphBody" runat="server">
              

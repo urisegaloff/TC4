@@ -25,13 +25,13 @@ public partial class Registro : System.Web.UI.Page
         }
         else
         {
-            MasterPageFile = "~/MasterPageAutenticado.master";
+            Server.Transfer("Default.aspx", true);
         }
     }
 
     public bool checkLogin()
     {
-        if (Context.Items["e_mail"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }

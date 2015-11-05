@@ -27,7 +27,7 @@ public partial class Login : System.Web.UI.Page
 
     public bool checkLogin()
     {
-        if (Context.Items["e_mail"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }
@@ -60,8 +60,8 @@ public partial class Login : System.Web.UI.Page
         {
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbUsuario.Text, tbPassword.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(Convert.ToString(SessionHelper.UsuarioAutenticado.idUsuario), false);
-            Context.Items.Add("id_user", SessionHelper.UsuarioAutenticado.idUsuario);
-            Context.Items.Add("idpermiso", SessionHelper.UsuarioAutenticado.idPermiso);
+            Session["mail"] = SessionHelper.UsuarioAutenticado.mail;
+            Session["idpermiso"] = SessionHelper.UsuarioAutenticado.idPermiso ;
             Server.Transfer("Default.aspx");
         }
         catch (AutenticacionExcepcionBO ex)
