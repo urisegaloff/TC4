@@ -99,10 +99,11 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#"><asp:Label runat="server" ID="lblPerfil"></asp:Label></a>
+                        <!-- Dirige a Usuarios, pero debería dirigir al perfil una vez armada la página -->
+                        <a href="Usuarios.aspx"><asp:Label runat="server" ID="lblPerfil"></asp:Label></a> 
                     </li>
                     <li>
-                        <asp:LinkButton ID="lbtnPerfil" OnClick="lbtnPerfil_Click" runat="server">Cerrar Sesións</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnPerfil" OnClick="lbtnPerfil_Click" runat="server">Cerrar Sesión</asp:LinkButton>
                     </li>
                 </ul>
             </div>
