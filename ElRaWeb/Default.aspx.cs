@@ -22,7 +22,7 @@ public partial class _Default : System.Web.UI.Page
 
     public bool checkLogin()
     {
-        if (Context.Items["e_mail"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }
@@ -39,8 +39,8 @@ public partial class _Default : System.Web.UI.Page
         
        if (!Page.IsPostBack)
         {
-            try { 
-                mail = Context.Items["e_mail"].ToString();
+            try {
+                mail = Session["mail"].ToString();
                 idPermiso = Convert.ToInt32(Context.Items["idpermiso"].ToString());
                 lblConfig1.Text = mail;            
                 //lblConfig2.Text = Convert.ToString(idPermiso);

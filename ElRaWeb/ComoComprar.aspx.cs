@@ -21,7 +21,7 @@ public partial class ComoComprar : System.Web.UI.Page
 
     public bool checkLogin()
     {
-        if (Context.Items["e_mail"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }

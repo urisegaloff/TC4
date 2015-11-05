@@ -6,7 +6,7 @@
 <asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
      <div class="form-inline " id="formUsuarios" runat="server" >
         <div class="panel-group">
-            <div class="col-xs-4 ">
+            <div class="col-xs-4 col-xs-offset-4 ">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
                         <h4 class="h4">Buscar Usuario</h4>
@@ -21,13 +21,13 @@
                            
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Nombre</span>
+                                    <span class="input-group-addon" id="sp2"">Nombre</span>
                                     <asp:TextBox ID="tbNombre" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Apellido</span>
+                                    <span class="input-group-addon" id="sp3"">Apellido</span>
                                     <asp:TextBox ID="tbApellido" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>
@@ -41,21 +41,20 @@
                         </div>
                     </div>
                     <div class ="panel-footer">
-                        
                    </div>
                 </div>
             </div>
-            <br />
+
             <div class="col-lg-12">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" HeaderStyle-BackColor="#80B1DC" AlternatingRowStyle-BackColor="WhiteSmoke" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
                             <Columns>
-                                <asp:CommandField EditText="Editar" ShowEditButton="True" />
-                                <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
                                 <asp:BoundField DataField="mail" HeaderText="E-Mail"></asp:BoundField>
                                 <asp:BoundField DataField="Apellido" HeaderText="Apellido"></asp:BoundField>
                                 <asp:BoundField DataField="Nombre" HeaderText="Nombre"></asp:BoundField>
+                                <asp:CommandField EditText="<asp:ImageButton class='glyphicon glyphicon-edit' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowEditButton="True" />
+                                <asp:CommandField DeleteText="<asp:ImageButton class='glyphicon glyphicon-remove' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>
                     </div>

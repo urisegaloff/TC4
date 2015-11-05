@@ -25,7 +25,7 @@ public partial class Articulo : System.Web.UI.Page
 
     public bool checkLogin()
     {
-        if (Context.Items["ID"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }
