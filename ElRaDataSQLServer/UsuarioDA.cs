@@ -28,7 +28,7 @@ namespace ElRaDataSQLServer
             usuario.nombre = cursor.GetString(cursor.GetOrdinal("nombre"));
             usuario.apellido = cursor.GetString(cursor.GetOrdinal("apellido"));
             usuario.mail = cursor.GetString(cursor.GetOrdinal("mail"));
-            //usuario.password = cursor.GetString(cursor.GetOrdinal("UsuarioPassword"));
+            usuario.password = cursor.GetString(cursor.GetOrdinal("contraseña"));
             usuario.telefono = cursor.GetString(cursor.GetOrdinal("telefono"));
             usuario.domicilio = cursor.GetString(cursor.GetOrdinal("domicilio"));
 

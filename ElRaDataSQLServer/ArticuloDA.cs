@@ -89,6 +89,7 @@ namespace ElRaDataSQLServer
             }
         }
 
+        /*
         public ArticuloEntity BuscarArticulo(string email, string password)
         {
             try
@@ -125,6 +126,7 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
+         */
 
 
         public List<ArticuloEntity> Buscar(string descripcion)

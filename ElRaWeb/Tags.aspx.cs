@@ -9,29 +9,23 @@ using ElRaEntity;
 using ElRaComun;
 using ElRaWebUtil;
 
-public partial class Usuarios : System.Web.UI.Page
+public partial class Tags : System.Web.UI.Page
 {
-    private UsuarioBO boUsuario = new UsuarioBO();
+    private TagBO boTag = new TagBO();
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-        {
-            if (Context.Items["MostrarTodos"] == "S")
-            {
-                BuscarUsuarios();
-            }
-        }
+
     }
 
 
     // Constantes de columnas de la grilla.
     private const int DGCOLUMN_BORRAR = 1;
 
-    private void BuscarUsuarios()
+    private void BuscarTags()
     {
         try
         {
-            dgResultados.DataSource = boUsuario.Buscar(tbMail.Text, tbNombre.Text, tbApellido.Text);
+            dgResultados.DataSource = boTag.Buscar(tbDescripcion.Text);
             dgResultados.DataBind();
         }
         catch (Exception ex)
@@ -43,14 +37,14 @@ public partial class Usuarios : System.Web.UI.Page
 
     protected void btnBuscar_Click(object sender, System.EventArgs e)
     {
-        BuscarUsuarios();
+        BuscarTags();
     }
 
 
     protected void btnNuevo_Click(object sender, System.EventArgs e)
     {
         // Se transfiere la ejecución a la página de carga y modificación de empleado.
-        Server.Transfer("Registro.aspx");
+        Server.Transfer("Tag.aspx");
     }
 
 
@@ -58,14 +52,13 @@ public partial class Usuarios : System.Web.UI.Page
     {
         try
         {
-            Context.Items.Add("Usuario", boUsuario.BuscarPorClavePrimaria(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
+            Context.Items.Add("Tag", boTag.Buscar(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
             // Se transfiere la ejecución a la página de carga y modificación de empleado.
-            Server.Transfer("Registro.aspx");
+            Server.Transfer("Tag.aspx");
         }
         catch (Exception ex)
         {
-            //Comentado porque muestra un error
-            //throw new ExcepcionBO("Error", ex);
+            throw new ExcepcionBO("Error", ex);
         }
     }
 
@@ -79,16 +72,16 @@ public partial class Usuarios : System.Web.UI.Page
         try
         {
             // Se busca el empleado por el legajo y se lo borra.
-            //boUsuario.Eliminar(dgResultados.DataKeys[e.RowIndex].Value.ToString());
+            //boTag.Eliminar(dgResultados.DataKeys[e.RowIndex].Value.ToString());
             // Se recarga la grilla.
-            BuscarUsuarios();
+            BuscarTags();
         }
         catch (Exception ex)
         {
             throw new ExcepcionBO("Error", ex);
         }
     }
-    
+
     protected void dgResultados_RowCreated(object sender, GridViewRowEventArgs e)
     {
         // onclick: al hacer click con el mouse sobre el link

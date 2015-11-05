@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Articulos.aspx.cs" Inherits="Articulos" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Tags.aspx.cs" Inherits="Tags" %>
 
 <asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
     
@@ -24,7 +24,7 @@
                             <asp:Button ID="btnBuscar" class="btn btn-primary" runat="server" onclick="btnBuscar_Click" Text="Buscar"/>
                         </div>
                         <div class="form-group text-center">
-                            <asp:Button ID="btnNuevo" class="btn btn-primary" runat="server" onclick="btnNuevo_Click" Text="Nuevo Articulo"/>
+                            <asp:Button ID="btnNuevo" class="btn btn-primary" runat="server" onclick="btnNuevo_Click" Text="Nuevo Tipo de Tag"/>
                         </div>
                     </div>
                     <div class ="panel-footer">
@@ -40,7 +40,7 @@
                             <Columns>
                                 <asp:CommandField EditText="Editar" ShowEditButton="True" />
                                 <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-                                <asp:BoundField DataField="IdProducto" HeaderText="Cod. Producto"></asp:BoundField>
+                                <asp:BoundField DataField="IdProducto" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
                             </Columns>
                         </asp:GridView>
