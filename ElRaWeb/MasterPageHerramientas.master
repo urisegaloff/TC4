@@ -1,0 +1,90 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageHerramientas.master.cs" Inherits="MasterPageHerramientas" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title> Elra WEB </title>
+
+     <link href="content/bootstrap.css" rel="Stylesheet" type="text/css"/>
+     <style>
+         
+        body {
+            background: url(http://kcoletrodesign.com/wordpress/wp-content/uploads/2014/04/dreamstime_l_34259408.jpg) no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            padding-top:70px;
+        }
+
+        .form-group{
+            padding-top: 10px;
+            padding-bottom: 10px
+        }
+        .productsrow {
+            -moz-column-width: 18em;
+            -webkit-column-width: 18em;
+            -moz-column-gap: 1em;
+            -webkit-column-gap: 1em;
+        }
+  
+        .menu-category {
+            display: inline-block;
+            margin-bottom:  0.25rem;
+            padding:  1rem;
+            width:  100%; 
+        }
+
+        .product-image {
+            width: 100%;
+        }
+
+        .product {
+            padding-top:22px;  
+        }
+
+        .btn-product {
+            background-color:#222;
+            color:#eee;
+            border-radius:0;
+        }
+
+        .yellow {
+            color:yellow;
+            text-shadow:#ccc 1px 1px 0;
+        }
+     </style>
+    <asp:ContentPlaceHolder id="cphHeader" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="formHerramientas" runat="server">
+    <div class="container">ç
+        <div class="col-lg-2 ">
+            <div class="panel panel-primary ">
+                <div class="panel-heading">
+                    Herramientas
+                </div>
+                <div class="panel-body">
+                    <asp:Button id="btnPerfil" CssClass="btn btn-default" Text="Perfil" runat="server" /><br />
+                    <asp:Button id="Button1" CssClass="btn btn-default" Text="ABM Artículos" runat="server" /><br />
+                    <asp:Button id="Button2" CssClass="btn btn-default" Text="ABM Tags" runat="server" /><br />
+                    <asp:Button id="Button3" CssClass="btn btn-default" Text="ABM Tags/Productos" runat="server" /><br />
+                    <asp:Button id="Button4" CssClass="btn btn-default" Text="ABM Usuarios" runat="server" /><br />
+                    <asp:Button id="Button5" CssClass="btn btn-default" Text="ABM Pedidos" runat="server" /><br />
+                </div>
+                <div class="panel-footer">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <asp:ContentPlaceHolder id="cphBody" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
