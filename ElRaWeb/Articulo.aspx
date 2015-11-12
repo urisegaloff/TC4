@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Articulo.aspx.cs" Inherits="Articulo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageHerramientas.master" AutoEventWireup="true" CodeFile="Articulo.aspx.cs" Inherits="Articulo" %>
 
-<asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
+<asp:Content ID="HeaderContentArticulo" ContentPlaceHolderID="cphHeader" runat="server">
     
 </asp:Content>
-<asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
+<asp:Content ID="BodyContentArticulo" ContentPlaceHolderID="cphBody" Runat="Server">
     <div class="container-fluid">
         <div class="form-inline " id="formRegistro" runat="server" >
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
@@ -12,10 +12,10 @@
                         <h4 class="h4">Articulo</h4>
                     </div>
                       <div class="panel-body">                    
-                            <div class="form-group" style ="display:none">
+                            <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">ID</span>
-                                    <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp2" runat="server" Enabled="false"></asp:TextBox>
+                                    <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group"> 
