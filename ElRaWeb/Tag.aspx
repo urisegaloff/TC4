@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Articulo.aspx.cs" Inherits="Articulo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Tag.aspx.cs" Inherits="Tag" %>
 
 <asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
     
@@ -9,13 +9,13 @@
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Articulo</h4>
+                        <h4 class="h4">Tag</h4>
                     </div>
                       <div class="panel-body">                    
-                            <div class="form-group" style ="display:none">
-                                <div class="input-group">
+                            <div class="form-group">
+                                <div class="input-group" style ="display:none">
                                     <span class="input-group-addon" id="sp1"">ID</span>
-                                    <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp2" runat="server" Enabled="false"></asp:TextBox>
+                                    <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group"> 
@@ -24,25 +24,14 @@
                                     <asp:TextBox ID="tbDescripcion" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
-                            </div>
-                            <div class="form-group">
+                            </div>                                      
+                            <div class="form-group"> 
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Stock</span>
-                                    <asp:TextBox ID="tbStock" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp2">Tipo</span>
+                                    <asp:TextBox ID="tbTipo" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Precio</span>
-                                    <asp:TextBox ID="tbPrecio" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Fecha Baja</span>
-                                    <asp:TextBox ID="tbFecha" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
-                                </div>
-                            </div>                            
+                                <asp:Label ID="Label2" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
+                            </div>                 
                         </div>
                     </div>
                     <div class ="panel-footer text-center">
@@ -51,7 +40,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </asp:Content>

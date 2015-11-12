@@ -161,7 +161,6 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por descripcion.", ex);
             }
         }
-
         #endregion Métodos Públicos
     }
 }

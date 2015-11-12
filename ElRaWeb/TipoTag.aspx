@@ -9,7 +9,7 @@
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Login</h4>
+                        <h4 class="h4">Tipo de Tag</h4>
                     </div>
                       <div class="panel-body">                    
                             <div class="form-group">

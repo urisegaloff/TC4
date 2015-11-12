@@ -40,7 +40,7 @@
                             <Columns>
                                 <asp:CommandField EditText="Editar" ShowEditButton="True" />
                                 <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-                                <asp:BoundField DataField="IdProducto" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
+                                <asp:BoundField DataField="ID" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
                             </Columns>
                         </asp:GridView>

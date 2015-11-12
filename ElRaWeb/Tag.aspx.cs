@@ -9,7 +9,7 @@ using ElRaEntity;
 using ElRaComun;
 using ElRaWebUtil;
 
-public partial class Articulo : System.Web.UI.Page
+public partial class Tag : System.Web.UI.Page
 {
     protected void Page_PreInit(object sender, EventArgs e)
     {
@@ -25,7 +25,7 @@ public partial class Articulo : System.Web.UI.Page
 
     public bool checkLogin()
     {
-        if (Session["mail"] != null)
+        if (Context.Items["ID"] != null)
         {
             return true;
         }
@@ -34,20 +34,17 @@ public partial class Articulo : System.Web.UI.Page
             return false;
         }
     }
-    private ArticuloBO boArticulo = new ArticuloBO();
+    private TagBO boTag = new TagBO();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            if (Context.Items.Contains("Articulo"))
+            if (Context.Items.Contains("Tag"))
             {
-                ArticuloEntity entidad = (ArticuloEntity)Context.Items["Articulo"];
+                TagEntity entidad = (TagEntity)Context.Items["Tag"];
 
-                tbID.Text = Convert.ToString(entidad.idProducto);
+                tbID.Text = Convert.ToString(entidad.idTipo);
                 tbDescripcion.Text = entidad.descripcion;
-                tbPrecio.Text = Convert.ToString(entidad.precio);
-                tbStock.Text = Convert.ToString(entidad.stock);
-                tbFecha.Text = Convert.ToString(entidad.fecha_baja);
 
                 // Se deshabilita la carga del legajo porque es clave primaria.
                 tbID.Enabled = false;
@@ -66,29 +63,26 @@ public partial class Articulo : System.Web.UI.Page
     {
         try
         {
-            ArticuloEntity Articulo = new ArticuloEntity();
+            TagEntity Tag = new TagEntity();
 
-            Articulo.idProducto = 0;
-            Articulo.descripcion = tbDescripcion.Text;
-            Articulo.precio = Convert.ToDouble(tbPrecio.Text);
-            Articulo.stock = Convert.ToInt32(tbStock.Text);
-            Articulo.fecha_baja = Convert.ToDateTime(tbFecha.Text);
-            
+            Tag.idTipo = Convert.ToInt32(tbID.Text);
+            Tag.descripcion = tbDescripcion.Text;
+
             if (Convert.ToBoolean(ViewState["Nuevo"]))
             {
-                boArticulo.Registrar(Articulo);
+                boTag.Registrar(Tag);
             }
             else
             {
-                boArticulo.Actualizar(Articulo);
-            } 
-                       
-            Context.Items.Add("ID", Articulo.idProducto);
+                boTag.Actualizar(Tag);
+            }
+
+            Context.Items.Add("ID", Tag.idTipo);
             //Server.Transfer("Default.aspx");
         }
         catch (ValidacionExcepcionAbstract ex)
         {
             WebHelper.MostrarMensaje(Page, ex.Message);
-        }        
+        }
     }
 }

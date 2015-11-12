@@ -15,6 +15,7 @@ namespace ElRaEntity
             stock = 0;
             precio = 0;
             fecha_baja = DateTime.Today;
+            ltags = null;
         }
 
         public int idProducto { get; set; }
@@ -22,6 +23,7 @@ namespace ElRaEntity
         public int stock { get; set; }
         public double precio { get; set; }
         public DateTime fecha_baja { get; set; }
+        public List<TagEntity> ltags { get; set; }
     
 
         public void ValidarDatos()

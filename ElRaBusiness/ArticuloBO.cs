@@ -56,5 +56,43 @@ namespace ElRaBusiness
                 throw new ExcepcionBO("No se pudo realizar la registración del Articulo.", ex);
             }
         }
+
+
+        public List<TagEntity> TraerNoAsignados(int idProducto)
+        {
+            try
+            {
+                return daArticulo.BuscarNoAsignados(idProducto);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda de Tags.", ex);
+            }
+        }
+
+        public List<TagEntity> TraerAsignados(int idProducto)
+        {
+            try
+            {
+                return daArticulo.BuscarAsignados(idProducto);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda de Tags.", ex);
+            }
+        }
+
+        public void AgregarTag(ArticuloEntity Articulo, int idTag)
+        {
+            try
+            {
+                daArticulo.AgregarTag(Articulo, idTag);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la registración del Articulo.", ex);
+            }
+        }
+
     }
 }
