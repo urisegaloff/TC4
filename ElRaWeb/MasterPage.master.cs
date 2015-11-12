@@ -27,8 +27,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             SessionHelper.AlmacenarUsuarioAutenticado(boUsuario.Autenticar(tbUsuarioMP.Text, tbPasswordMP.Text));
             //System.Web.Security.FormsAuthentication.RedirectFromLoginPage(Convert.ToString(SessionHelper.UsuarioAutenticado.idUsuario), false);
-            Session["mail"] = SessionHelper.UsuarioAutenticado.mail;
-            Session["idpermiso"] = SessionHelper.UsuarioAutenticado.idPermiso;
+			Session["idpermiso"] = SessionHelper.UsuarioAutenticado.idPermiso;
+			Session["idusuario"] = SessionHelper.UsuarioAutenticado.idUsuario;
+			Session["nombre"] = SessionHelper.UsuarioAutenticado.nombre;
+			Session["apellido"] = SessionHelper.UsuarioAutenticado.apellido;
+			Session["telefono"] = SessionHelper.UsuarioAutenticado.telefono;
+			Session["mail"] = SessionHelper.UsuarioAutenticado.mail;
+			Session["domicilio"] = SessionHelper.UsuarioAutenticado.domicilio;
+		
             Server.Transfer("Default.aspx");
         }
         catch (AutenticacionExcepcionBO ex)

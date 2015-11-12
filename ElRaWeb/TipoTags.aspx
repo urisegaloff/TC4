@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="TipoTags.aspx.cs" Inherits="TipoTags" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageHerramientas.master" AutoEventWireup="true" CodeFile="TipoTags.aspx.cs" Inherits="TipoTags" %>
 
-<asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
+<asp:Content ID="HeaderContentTipoTags" ContentPlaceHolderID="cphHeader" runat="server">
     
 </asp:Content>
-<asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
+<asp:Content ID="BodyContentTipoTags" ContentPlaceHolderID="cphBody" Runat="Server">
      <div class="form-inline " id="formUsuarios" runat="server" >
         <div class="panel-group">
-            <div class="col-xs-4 ">
+            <div class="container-fluid">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Buscar Usuario</h4>
+                        <h4 class="h4">Buscar Tipo Tag</h4>
                     </div>
                       <div class="panel-body">                    
                             <div class="form-group">
@@ -32,9 +32,9 @@
                    </div>
                 </div>
             </div>
-            <br />
-            <div class="col-lg-12">
-                <div class="panel panel-default">
+			<br />
+           <div class="container-fluid">
+                <div class="panel panel-primary">
                     <div class="panel-body">
                         <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
                             <Columns>

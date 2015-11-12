@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageHerramientas.master" AutoEventWireup="true" CodeFile="Usuarios.aspx.cs" Inherits="Usuarios" %>
 
-<asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
+<asp:Content ID="HeaderContentUsuario" ContentPlaceHolderID="cphHeader" runat="server">
     
 </asp:Content>
-<asp:Content ID="BodyContentLogin" ContentPlaceHolderID="cphBody" Runat="Server">
+<asp:Content ID="BodyContentUsuario" ContentPlaceHolderID="cphBody" Runat="Server">
      <div class="form-inline " id="formUsuarios" runat="server" >
         <div class="panel-group">
-            <div class="col-xs-4 col-xs-offset-4 ">
+            <div class="container-fluid">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
                         <h4 class="h4">Buscar Usuario</h4>
@@ -44,8 +44,8 @@
                    </div>
                 </div>
             </div>
-
-            <div class="col-lg-12">
+			<br />
+            <div class="container-fluid">
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" HeaderStyle-BackColor="#80B1DC" AlternatingRowStyle-BackColor="WhiteSmoke" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
