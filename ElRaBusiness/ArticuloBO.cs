@@ -30,6 +30,19 @@ namespace ElRaBusiness
             }
         }
 
+        public List<ArticuloEntity> Buscar(string descripcion, string Marca, string Codigo)
+        {
+            try
+            {
+
+                return daArticulo.Buscar(descripcion);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del Articulo.", ex);
+            }
+        }
+
         public void Actualizar(ArticuloEntity entidad)
         {
             try

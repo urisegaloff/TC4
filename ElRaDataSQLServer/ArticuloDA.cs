@@ -179,6 +179,47 @@ namespace ElRaDataSQLServer
         }
 
 
+
+        public List<ArticuloEntity> Buscar(string descripcion, string Marca, string Codigo)
+        {
+            // Lista de objetos con datos de empleados.
+            List<ArticuloEntity> Articulos = null;
+            try
+            {
+                ArticuloEntity articulo = null;
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("BuscarArticuloCarrito", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@ArticuloDescripcion"].Value = descripcion.Trim();
+                        comando.Parameters["@ArticuloMarca"].Value = Marca.Trim();
+                        comando.Parameters["@ArticuloCodigo"].Value = Codigo.Trim();
+
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            Articulos = new List<ArticuloEntity>();
+                            while (cursor.Read())
+                            {
+                                Articulos.Add(CrearArticulo(cursor));
+                            }
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return Articulos;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
+            }
+        }
+
+
         public List<TagEntity> BuscarNoAsignados(int idProducto)
         {
             // Lista de objetos con datos de empleados.
