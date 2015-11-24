@@ -39,7 +39,7 @@
                             <asp:Label ID="lblNombreContacto" for="tbNombreContacto" runat="server" Text="Nombre"></asp:Label>
                         </div>
                         <div class="col-lg-6">
-                            <asp:TextBox ID="tbNombreContacto" class="form-control" placeholder="Tu vieja" size="10" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbNombreContacto" class="form-control" placeholder="Nombre" size="10" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -47,7 +47,7 @@
                             <asp:Label ID="lblMailContacto" runat="server" Text="E-Mail"></asp:Label>
                         </div>
                         <div class="col-lg-6">
-                            <asp:TextBox ID="tbMailContacto" class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbMailContacto" class="form-control" placeholder="E-Mail" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
@@ -55,11 +55,14 @@
                             <asp:Label ID="lblMensajeContacto" runat="server" Text="Mensaje"></asp:Label>
                         </div>
                         <div class="col-lg-10">
-                            <asp:TextBox ID="tbMensajeContacto" class="form-control" TextMode="MultiLine" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="tbMensajeContacto" class="form-control" placeholder="Mensaje" TextMode="MultiLine" runat="server"></asp:TextBox>
                         </div>
-                        
-                        
                     </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="text-center">
+                     <asp:Label ID="lblAvisoMensaje" CssClass="alert-success" runat="server" Text="Mensaje enviado" Visible="false"></asp:Label>
                 </div>
             </div>
         </div>
