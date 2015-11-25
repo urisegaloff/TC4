@@ -65,7 +65,7 @@ public partial class TipoTag : System.Web.UI.Page
         {
             TipoTagEntity TipoTag = new TipoTagEntity();
 
-            TipoTag.idTipo = Convert.ToInt32(tbID.Text);
+            TipoTag.idTipo = tbID.Text;
             TipoTag.descripcion = tbDescripcion.Text;
             
             if (Convert.ToBoolean(ViewState["Nuevo"]))

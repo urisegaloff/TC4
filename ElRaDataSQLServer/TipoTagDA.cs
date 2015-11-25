@@ -22,7 +22,7 @@ namespace ElRaDataSQLServer
         private TipoTagEntity CrearTipoTag(SqlDataReader cursor)
         {
             TipoTagEntity TipoTag = new TipoTagEntity();
-            TipoTag.idTipo = cursor.GetInt32(cursor.GetOrdinal("id_tipo"));
+            TipoTag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
             TipoTag.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
             
             return TipoTag;
@@ -131,7 +131,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@TipoTagDescripcion"].Value = TipoTag.descripcion.Trim();
+                        comando.Parameters["@TipoTagDescripcion"].Value = descripcion.Trim();
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

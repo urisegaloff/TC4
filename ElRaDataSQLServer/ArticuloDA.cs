@@ -24,7 +24,7 @@ namespace ElRaDataSQLServer
             articulo.idProducto = cursor.GetInt32(cursor.GetOrdinal("Id_Producto"));
             articulo.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
             articulo.stock = cursor.GetInt32(cursor.GetOrdinal("stock"));
-            articulo.precio = cursor.GetDouble(cursor.GetOrdinal("precio"));
+            articulo.precio = cursor.GetDecimal(cursor.GetOrdinal("precio"));
             articulo.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
             
             return articulo;
@@ -33,8 +33,8 @@ namespace ElRaDataSQLServer
         private TagEntity CrearTag(SqlDataReader cursor)
         {
             TagEntity Tag = new TagEntity();
-            Tag.idTipo = cursor.GetInt32(cursor.GetOrdinal("id_tag"));
-            Tag.idTipo = cursor.GetInt32(cursor.GetOrdinal("id_tipo"));
+            Tag.idTag = cursor.GetInt32(cursor.GetOrdinal("id_tag"));
+            Tag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
             Tag.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
             Tag.fecha_alta = cursor.GetDateTime(cursor.GetOrdinal("fecha_alta"));
             Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
@@ -156,7 +156,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@ArticuloDescripcion"].Value = articulo.descripcion.Trim();
+                        comando.Parameters["@ArticuloDescripcion"].Value = descripcion.Trim();
                         
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

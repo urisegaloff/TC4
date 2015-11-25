@@ -22,11 +22,11 @@ namespace ElRaDataSQLServer
         private TagEntity CrearTag(SqlDataReader cursor)
         {
             TagEntity Tag = new TagEntity();
-            Tag.idTipo = cursor.GetInt32(cursor.GetOrdinal("id_tag"));
-            Tag.idTipo = cursor.GetInt32(cursor.GetOrdinal("id_tipo"));
+            Tag.idTag = cursor.GetInt32(cursor.GetOrdinal("id_tag"));
+            Tag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
             Tag.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
             Tag.fecha_alta = cursor.GetDateTime(cursor.GetOrdinal("fecha_alta"));
-            Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));            
+            //Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));            
             return Tag;
         }
         #endregion Métodos Privados
@@ -43,11 +43,11 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@TagID"].Value = Tag.idTag;
-                        comando.Parameters["@TagIdtipo"].Value = Tag.idTipo;
-                        comando.Parameters["@TagDescripcion"].Value = Tag.descripcion.Trim();
-                        comando.Parameters["@TagFechaAlta"].Value = Tag.fecha_alta;
-                        comando.Parameters["@TagFechaBaja"].Value = Tag.fecha_baja;
+                        //comando.Parameters["@TagID"].Value = Tag.idTag;
+                        comando.Parameters["@id_tipo"].Value = Tag.idTipo;
+                        comando.Parameters["@descripcion"].Value = Tag.descripcion.Trim();
+                        //comando.Parameters["@TagFechaAlta"].Value = Tag.fecha_alta;
+                        //comando.Parameters["@TagFechaBaja"].Value = Tag.fecha_baja;
                         
                         comando.ExecuteNonQuery();                        
                     }
@@ -140,7 +140,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@TagDescripcion"].Value = Tag.descripcion.Trim();
+                        comando.Parameters["@TagDescripcion"].Value = descripcion.Trim();
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

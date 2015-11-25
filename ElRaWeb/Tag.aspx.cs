@@ -64,8 +64,8 @@ public partial class Tag : System.Web.UI.Page
         try
         {
             TagEntity Tag = new TagEntity();
-
-            Tag.idTipo = Convert.ToInt32(tbID.Text);
+            
+            Tag.idTipo = tbTipo.Text;
             Tag.descripcion = tbDescripcion.Text;
 
             if (Convert.ToBoolean(ViewState["Nuevo"]))
@@ -77,8 +77,8 @@ public partial class Tag : System.Web.UI.Page
                 boTag.Actualizar(Tag);
             }
 
-            Context.Items.Add("ID", Tag.idTipo);
-            //Server.Transfer("Default.aspx");
+            //Context.Items.Add("ID", Tag.idTag);
+            Server.Transfer("Tags.aspx");
         }
         catch (ValidacionExcepcionAbstract ex)
         {

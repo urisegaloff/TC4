@@ -10,11 +10,11 @@ namespace ElRaEntity
     {
         public TipoTagEntity()
         {
-            idTipo = 0;
+            idTipo = "";
             descripcion = "";
         }
 
-        public int idTipo { get; set; }
+        public string idTipo { get; set; }
         public string descripcion { get; set; }
 
         public void ValidarDatos()

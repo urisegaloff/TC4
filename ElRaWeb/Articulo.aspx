@@ -50,6 +50,11 @@
                             <asp:Button ID="btnRegistro" class="btn btn-primary" runat="server" onclick="btnRegistro_Click" Text="Aceptar"/>
                         </div>
                     </div>
+                    <div class ="panel-footer text-center">
+                        <div class="form-group text-center">
+                            <asp:Button ID="btnTags" class="btn btn-primary" runat="server" onclick="btnTags_Click" Text="Agregar Tags"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

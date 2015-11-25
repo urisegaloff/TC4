@@ -21,7 +21,7 @@ namespace ElRaEntity
         public int idProducto { get; set; }
         public string descripcion { get; set; }
         public int stock { get; set; }
-        public double precio { get; set; }
+        public Decimal precio { get; set; }
         public DateTime fecha_baja { get; set; }
         public List<TagEntity> ltags { get; set; }
     

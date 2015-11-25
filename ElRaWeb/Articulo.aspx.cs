@@ -70,10 +70,10 @@ public partial class Articulo : System.Web.UI.Page
 
             Articulo.idProducto = 0;
             Articulo.descripcion = tbDescripcion.Text;
-            Articulo.precio = Convert.ToDouble(tbPrecio.Text);
+            Articulo.precio = Convert.ToDecimal(tbPrecio.Text);
             Articulo.stock = Convert.ToInt32(tbStock.Text);
             Articulo.fecha_baja = Convert.ToDateTime(tbFecha.Text);
-            
+
             if (Convert.ToBoolean(ViewState["Nuevo"]))
             {
                 boArticulo.Registrar(Articulo);
@@ -81,14 +81,29 @@ public partial class Articulo : System.Web.UI.Page
             else
             {
                 boArticulo.Actualizar(Articulo);
-            } 
-                       
+            }
+
             Context.Items.Add("ID", Articulo.idProducto);
             //Server.Transfer("Default.aspx");
         }
         catch (ValidacionExcepcionAbstract ex)
         {
             WebHelper.MostrarMensaje(Page, ex.Message);
-        }        
+        }
+    }    
+
+
+
+    protected void btnTags_Click(object sender, EventArgs e)
+    {
+        try
+        {                      
+            Context.Items.Add("ID", tbID.Text);
+            Server.Transfer("ArticuloTag.aspx");
+        }
+        catch (ValidacionExcepcionAbstract ex)
+        {
+            WebHelper.MostrarMensaje(Page, ex.Message);
+        }
     }
 }

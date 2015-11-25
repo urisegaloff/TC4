@@ -52,7 +52,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("No se pudo realizar la registración del Tipo de Tag.", ex);
+                throw new ExcepcionBO("No se pudo realizar la registración del Tag.", ex);
             }
         }
     }

@@ -36,12 +36,12 @@
            <div class="container-fluid">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
-                            <Columns>
-                                <asp:CommandField EditText="Editar" ShowEditButton="True" />
-                                <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-                                <asp:BoundField DataField="ID" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTipo">
+                            <Columns>                                
+                                <asp:BoundField DataField="idTipo" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
+                                <asp:CommandField EditText="Editar" ShowEditButton="True" />
+                                <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />                                
                             </Columns>
                         </asp:GridView>
                     </div>

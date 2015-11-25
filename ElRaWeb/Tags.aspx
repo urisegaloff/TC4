@@ -24,7 +24,7 @@
                             <asp:Button ID="btnBuscar" class="btn btn-primary" runat="server" onclick="btnBuscar_Click" Text="Buscar"/>
                         </div>
                         <div class="form-group text-center">
-                            <asp:Button ID="btnNuevo" class="btn btn-primary" runat="server" onclick="btnNuevo_Click" Text="Nuevo Tipo de Tag"/>
+                            <asp:Button ID="btnNuevo" class="btn btn-primary" runat="server" onclick="btnNuevo_Click" Text="Nuevo Tag"/>
                         </div>
                     </div>
                     <div class ="panel-footer">
@@ -36,13 +36,13 @@
             <div class="container-fluid">
                 <div class="panel panel-primary">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTag">
                             <Columns>
                                 <asp:CommandField EditText="Editar" ShowEditButton="True" />
                                 <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-                                <asp:BoundField DataField="ID" HeaderText="Cod. de Tag"></asp:BoundField>
+                                <asp:BoundField DataField="idTag" HeaderText="Cod. de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
-                                <asp:BoundField DataField="Tipo" HeaderText="Tipo"></asp:BoundField>                                
+                                <asp:BoundField DataField="idTipo" HeaderText="Tipo"></asp:BoundField>                                
                             </Columns>
                         </asp:GridView>
                     </div>
