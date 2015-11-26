@@ -9,7 +9,7 @@
             <div class="col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Login</h4>
+                        <h4 class="h4">Agregar Tags</h4>
                     </div>
                       <div class="panel-body">                              
                              <div class="form-group">
@@ -41,7 +41,7 @@
                     </div>
                     <div class ="panel-footer text-center">
                         <div class="form-group text-center">
-                            <asp:Button ID="btnGrabar" class="btn btn-primary" runat="server" onclick="btnGrabar_Click" Text="Guardar Cambios"/>
+                            <asp:Button ID="btnVolver" class="btn btn-primary" runat="server" onclick="btnVolver_Click" Text="Volver"/>
                         </div>
                     </div>
                 </div>

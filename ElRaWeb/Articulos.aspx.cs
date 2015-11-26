@@ -52,7 +52,7 @@ public partial class Articulos : System.Web.UI.Page
     {
         try
         {
-            Context.Items.Add("Articulo", boArticulo.Buscar(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
+            Context.Items.Add("Articulo", boArticulo.BuscarPorClavePrimaria(Convert.ToInt32(dgResultados.DataKeys[e.NewEditIndex].Value.ToString())));
             // Se transfiere la ejecución a la página de carga y modificación de empleado.
             Server.Transfer("Articulo.aspx");
         }

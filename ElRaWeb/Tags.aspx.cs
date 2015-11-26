@@ -52,7 +52,7 @@ public partial class Tags : System.Web.UI.Page
     {
         try
         {
-            Context.Items.Add("Tag", boTag.Buscar(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
+            Context.Items.Add("Tag", boTag.BuscarPorClavePrimaria(Convert.ToInt32(dgResultados.DataKeys[e.NewEditIndex].Value.ToString())));
             // Se transfiere la ejecución a la página de carga y modificación de empleado.
             Server.Transfer("Tag.aspx");
         }

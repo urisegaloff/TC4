@@ -87,7 +87,7 @@ namespace ElRaDataSQLServer
             }
         }
 
-        public TagEntity BuscarTag(int idTipo)
+        public TagEntity BuscarTag(int idTag)
         {
             try
             {
@@ -100,7 +100,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@TagID"].Value = Tag.idTag;
+                        comando.Parameters["@TagID"].Value = idTag;
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

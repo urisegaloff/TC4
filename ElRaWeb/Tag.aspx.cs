@@ -35,18 +35,25 @@ public partial class Tag : System.Web.UI.Page
         }
     }
     private TagBO boTag = new TagBO();
+    private TipoTagBO boTipoTag = new TipoTagBO();
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        ddlTipoTags.DataSource = boTipoTag.Buscar("");
+        ddlTipoTags.DataTextField = "descripcion";
+        ddlTipoTags.DataValueField = "idTipo";
+        ddlTipoTags.DataBind();
         if (!Page.IsPostBack)
         {
             if (Context.Items.Contains("Tag"))
             {
                 TagEntity entidad = (TagEntity)Context.Items["Tag"];
 
-                tbID.Text = Convert.ToString(entidad.idTipo);
+                tbID.Text = Convert.ToString(entidad.idTag);
                 tbDescripcion.Text = entidad.descripcion;
+                ddlTipoTags.SelectedItem.Value = entidad.idTipo;
+                //ddlTipoTags.DataSource = boTipoTag.BuscarTipoAsociado(entidad.idTag);
 
-                // Se deshabilita la carga del legajo porque es clave primaria.
                 tbID.Enabled = false;
                 ViewState.Add("Nuevo", false);
             }
@@ -56,6 +63,8 @@ public partial class Tag : System.Web.UI.Page
                 // que el empleado es nuevo.
                 ViewState.Add("Nuevo", true);
             }
+
+
         }
     }
 
@@ -64,8 +73,8 @@ public partial class Tag : System.Web.UI.Page
         try
         {
             TagEntity Tag = new TagEntity();
-            
-            Tag.idTipo = tbTipo.Text;
+
+            Tag.idTipo = ddlTipoTags.SelectedItem.Value;
             Tag.descripcion = tbDescripcion.Text;
 
             if (Convert.ToBoolean(ViewState["Nuevo"]))

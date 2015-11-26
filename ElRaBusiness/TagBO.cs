@@ -29,6 +29,18 @@ namespace ElRaBusiness
             }
         }
 
+        public TagEntity BuscarPorClavePrimaria(int idTag)
+        {
+            try
+            {
+                return daTag.BuscarTag(idTag);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del Tag.", ex);
+            }
+        }
+
         public void Actualizar(TagEntity entidad)
         {
             try

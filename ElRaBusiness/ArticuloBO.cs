@@ -43,6 +43,20 @@ namespace ElRaBusiness
             }
         }
 
+        public ArticuloEntity BuscarPorClavePrimaria(int idProducto)
+        {
+            try
+            {
+
+                return daArticulo.BuscarPorClavePrimaria(idProducto);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del Articulo.", ex);
+            }
+        }
+
+
         public void Actualizar(ArticuloEntity entidad)
         {
             try

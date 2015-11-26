@@ -153,6 +153,44 @@ namespace ElRaDataSQLServer
             }
         }
 
+
+        public List<TipoTagEntity> BuscarTipoAsociado(int idTag)
+        {
+            // Lista de objetos con datos de empleados.
+            List<TipoTagEntity> TipoTags = null;
+            try
+            {
+                TipoTagEntity TipoTag = null;
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("BuscarTagEdit", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@TagID"].Value = idTag;
+
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            TipoTags = new List<TipoTagEntity>();
+                            while (cursor.Read())
+                            {
+                                TipoTags.Add(CrearTipoTag(cursor));
+                            }
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return TipoTags;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar por descripcion.", ex);
+            }
+        }
+
         #endregion Métodos Públicos
     }
 }

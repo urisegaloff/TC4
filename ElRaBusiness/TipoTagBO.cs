@@ -29,6 +29,18 @@ namespace ElRaBusiness
             }
         }
 
+        public List<TipoTagEntity> BuscarTipoAsociado(int idTag)
+        {
+            try
+            {
+                return daTipoTag.BuscarTipoAsociado(idTag);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda del Tipo de Tag.", ex);
+            }
+        }
+
         public void Actualizar(TipoTagEntity entidad)
         {
             try

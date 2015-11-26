@@ -26,6 +26,7 @@ public partial class ArticuloTag : System.Web.UI.Page
                 tbID.Text = Convert.ToString(Context.Items["ID"]);
                 BuscarTagsNoAsociados();
                 BuscarTagsAsociados();
+                tbID.Enabled = false;
             }
         }
     }
@@ -33,7 +34,18 @@ public partial class ArticuloTag : System.Web.UI.Page
     {
         try
         {
+            /*List<TagEntity> ltags;
+            ltags = new List<TagEntity>();
+            ltags = boArticulo.TraerNoAsignados(Convert.ToInt32(tbID.Text));
+
+            foreach (TagEntity tag in ltags)
+            {
+                ddlTags.Items.Add();
+            }*/
             ddlTags.DataSource = boArticulo.TraerNoAsignados(Convert.ToInt32(tbID.Text));
+            ddlTags.DataTextField = "descripcion";
+            ddlTags.DataValueField = "idTag";
+            
             ddlTags.DataBind();
         }
         catch (Exception ex)
@@ -48,7 +60,7 @@ public partial class ArticuloTag : System.Web.UI.Page
         try
         {
 
-            dgResultados.DataSource = boArticulo.TraerNoAsignados(Convert.ToInt32(tbID.Text)); 
+            dgResultados.DataSource = boArticulo.TraerAsignados(Convert.ToInt32(tbID.Text)); 
             dgResultados.DataBind();
         }
         catch (Exception ex)
@@ -57,15 +69,21 @@ public partial class ArticuloTag : System.Web.UI.Page
         }
     }
 
-    protected void btnGrabar_Click(object sender, EventArgs e)
-    {     
+    protected void btnVolver_Click(object sender, EventArgs e)
+    {
+        Context.Items.Add("Articulo", boArticulo.BuscarPorClavePrimaria(Convert.ToInt32(tbID.Text)));
+        // Se transfiere la ejecución a la página de carga y modificación de empleado.
+        Server.Transfer("Articulo.aspx");
     }
 
     protected void btnAgregar_Click(object sender, EventArgs e)
     {
         //List<TagEntity> tags = (TagEntity)dgResultados.DataSource;
         //Agrega el tag en la base de datos 
-        idTag = ddlTags.SelectedIndex;
+
+        idTag = Convert.ToInt32(ddlTags.SelectedItem.Value);
+
+        
 
         Articulo.idProducto = Convert.ToInt32(tbID.Text);
 

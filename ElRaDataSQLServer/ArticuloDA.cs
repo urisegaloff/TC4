@@ -34,10 +34,10 @@ namespace ElRaDataSQLServer
         {
             TagEntity Tag = new TagEntity();
             Tag.idTag = cursor.GetInt32(cursor.GetOrdinal("id_tag"));
-            Tag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
+            //Tag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
             Tag.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
-            Tag.fecha_alta = cursor.GetDateTime(cursor.GetOrdinal("fecha_alta"));
-            Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
+            //Tag.fecha_alta = cursor.GetDateTime(cursor.GetOrdinal("fecha_alta"));
+            //Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
             return Tag;
         }
 
@@ -179,6 +179,44 @@ namespace ElRaDataSQLServer
         }
 
 
+        public ArticuloEntity BuscarPorClavePrimaria(int idProducto)
+        {
+            // Lista de objetos con datos de empleados.
+            List<ArticuloEntity> Articulos = null;
+            try
+            {
+                ArticuloEntity Articulo = null;
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("BuscarArticuloPorClave", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@ArticuloID"].Value = idProducto;
+
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            Articulo = new ArticuloEntity();
+                            while (cursor.Read())
+                            {
+                                Articulo = CrearArticulo(cursor);
+                            }
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return Articulo;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar el Articulo.", ex);
+            }
+        }
+
+
 
         public List<ArticuloEntity> Buscar(string descripcion, string Marca, string Codigo)
         {
@@ -235,7 +273,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@idProducto"].Value = Tag.descripcion.Trim();
+                        comando.Parameters["@idProducto"].Value = idProducto;
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
@@ -273,7 +311,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@idProducto"].Value = Tag.descripcion.Trim();
+                        comando.Parameters["@idProducto"].Value = idProducto;
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

@@ -25,13 +25,12 @@
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>                                      
-                            <div class="form-group"> 
+                            <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp2">Tipo</span>
-                                    <asp:TextBox ID="tbTipo" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp3">TipoTag:</span>
+                                    <asp:dropdownlist id ="ddlTipoTags" runat ="server"> </asp:dropdownlist >
                                 </div>
-                                <asp:Label ID="Label2" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
-                            </div>                 
+                            </div>                            
                         </div>
                     </div>
                     <div class ="panel-footer text-center">
