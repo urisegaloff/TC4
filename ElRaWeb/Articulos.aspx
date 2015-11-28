@@ -34,14 +34,14 @@
             </div>
             <br />
             <div class="container-fluid">
-                <div class="panel panel-primary">
+                <div id="divPanel" class="panel panel-primary col-lg-6 col-lg-offset-3" visible="false" runat="server">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idProducto">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-striped table-hover table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idProducto">
                             <Columns>
-                                <asp:CommandField EditText="Editar" ShowEditButton="True" />
-                                <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
-                                <asp:BoundField DataField="IdProducto" HeaderText="Cod. Producto"></asp:BoundField>
+                                <asp:BoundField DataField="IdProducto" HeaderText="# Prod."></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
+                                <asp:CommandField EditText="<asp:ImageButton class='glyphicon glyphicon-edit' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowEditButton="True" />
+                                <asp:CommandField DeleteText="<asp:ImageButton class='glyphicon glyphicon-remove' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>
                     </div>

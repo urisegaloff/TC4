@@ -14,7 +14,7 @@
                       <div class="panel-body">                    
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Descripcion</span>
+                                    <span class="input-group-addon" id="sp1"">ID</span>
                                     <asp:TextBox ID="tbDescripcion" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
                             </div>                           
@@ -34,15 +34,15 @@
             </div>
             <br />
             <div class="container-fluid">
-                <div class="panel panel-primary">
+                <div id="divPanel" class="panel panel-primary" visible="false" runat="server">
                     <div class="panel-body">
                         <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTag">
                             <Columns>
-                                <asp:CommandField EditText="Editar" ShowEditButton="True" />
-                                <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />
                                 <asp:BoundField DataField="idTag" HeaderText="Cod. de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
                                 <asp:BoundField DataField="idTipo" HeaderText="Tipo"></asp:BoundField>                                
+                                <asp:CommandField EditText="<asp:ImageButton class='glyphicon glyphicon-edit' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowEditButton="True" />
+                                <asp:CommandField DeleteText="<asp:ImageButton class='glyphicon glyphicon-remove' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>
                     </div>

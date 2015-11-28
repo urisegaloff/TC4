@@ -37,6 +37,7 @@ public partial class Articulos : System.Web.UI.Page
 
     protected void btnBuscar_Click(object sender, System.EventArgs e)
     {
+        divPanel.Visible = true;
         BuscarArticulos();
     }
 

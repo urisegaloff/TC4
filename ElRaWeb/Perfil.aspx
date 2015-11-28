@@ -14,46 +14,50 @@
                       <div class="panel-body">                    
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">E-Mail</span>
-                                    <asp:TextBox ID="tbMail" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp1">E-Mail</span>
+                                    <asp:TextBox ID="tbMail" class="form-control" aria-describedby="sp1" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group"> 
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1">Contraseña</span>
-                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp1" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp2">Contraseña</span>
+                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
-                                <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
+                                <asp:RequiredFieldValidator ID="valTbPassword" ValidationGroup="valModPerfil" ControlToValidate="tbPassword" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Nombre</span>
-                                    <asp:TextBox ID="tbNombre" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp3">Nombre</span>
+                                    <asp:TextBox ID="tbNombre" class="form-control" aria-describedby="sp3" runat="server"></asp:TextBox>
                                 </div>
+                                <asp:RequiredFieldValidator ID="valTbNombre" ValidationGroup="valModPerfil" ControlToValidate="tbNombre" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Apellido</span>
-                                    <asp:TextBox ID="tbApellido" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp4">Apellido</span>
+                                    <asp:TextBox ID="tbApellido" class="form-control" aria-describedby="sp2" runat="server"></asp:TextBox>
                                 </div>
+                                <asp:RequiredFieldValidator ID="valTbApellido" ValidationGroup="valModPerfil" ControlToValidate="tbApellido" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Telefono</span>
-                                    <asp:TextBox ID="tbTelefono" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp5">Telefono</span>
+                                    <asp:TextBox ID="tbTelefono" class="form-control" aria-describedby="sp5" runat="server"></asp:TextBox>
                                 </div>
+                                <asp:RequiredFieldValidator ID="valTbTelefono" ValidationGroup="valModPerfil" ControlToValidate="tbTelefono" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
-                                    <span class="input-group-addon" id="sp1"">Domicilio</span>
-                                    <asp:TextBox ID="tbDomicilio" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <span class="input-group-addon" id="sp6">Domicilio</span>
+                                    <asp:TextBox ID="tbDomicilio" class="form-control"  aria-describedby="sp6" runat="server"></asp:TextBox>
                                 </div>
+                                <asp:RequiredFieldValidator ID="valTbDomicilio" ValidationGroup="valModPerfil" ControlToValidate="tbDomicilio" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                             </div>
                             <hr />
                     </div>
                     <div class ="panel-footer text-center">
                         <div class="form-group text-center">
-                            <asp:Button ID="btnRegistro" class="btn btn-primary" runat="server" onclick="btnRegistro_Click" Text="Aceptar"/>
+                            <asp:Button ID="btnModPerfil" class="btn btn-primary" CausesValidation="true" ValidationGroup="valModPerfil" runat="server" onclick="btnModPerfil_Click" Text="Aceptar"/>
                         </div>
                     </div>
                 </div>

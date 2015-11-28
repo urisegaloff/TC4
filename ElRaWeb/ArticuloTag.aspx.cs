@@ -16,7 +16,26 @@ public partial class ArticuloTag : System.Web.UI.Page
     private ArticuloEntity Articulo = new ArticuloEntity();
     private TagEntity Tag = new TagEntity();
     private int idTag = 0;
-   
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            Server.Transfer("Default.aspx", true);
+        }
+    }
+
+    public bool checkLogin()
+    {
+        if (Session["mail"] != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)

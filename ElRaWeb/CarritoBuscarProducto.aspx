@@ -48,13 +48,13 @@
             </div>
             <br />
             <div class="container-fluid">
-                <div class="panel panel-primary">
+                <div class="panel panel-primary col-lg-6 col-lg-offset-3">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowEditing="dgResultados_RowEditing" DataKeyNames="IdProducto">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowEditing="dgResultados_RowEditing" DataKeyNames="IdProducto">
                             <Columns>
-                                <asp:CommandField EditText="Agregar" ShowEditButton="True" />
-                                <asp:BoundField DataField="IdProducto" HeaderText="Cod. Producto"></asp:BoundField>
-                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
+                                <asp:BoundField DataField="IdProducto" HeaderText="# Prod" ItemStyle-Width="20%"></asp:BoundField>
+                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>        
+                                <asp:CommandField EditText="Agregar" ShowEditButton="True" />                        
                             </Columns>
                         </asp:GridView>
                     </div>

@@ -62,15 +62,11 @@ public partial class Registro : System.Web.UI.Page
                 else
                 {
 					tbApellido.Text = Session["apellido"].ToString();
-					tbApellido.Enabled = false;
 					tbNombre.Text = Session["nombre"].ToString();
-					tbNombre.Enabled = false;
 					tbTelefono.Text = Session["telefono"].ToString();
-					tbTelefono.Enabled = false;
 					tbMail.Text = Session["mail"].ToString();
 					tbMail.Enabled = false;
 					tbDomicilio.Text = Session["domicilio"].ToString();
-					tbDomicilio.Enabled = false;
 					
                 }
             }
@@ -81,14 +77,17 @@ public partial class Registro : System.Web.UI.Page
         }
 
     }
-    protected void btnRegistro_Click(object sender, EventArgs e)
+    protected void btnModPerfil_Click(object sender, EventArgs e)
     {
         try
         {
             UsuarioEntity usuario = new UsuarioEntity();
             usuario.nombre = tbNombre.Text;
             usuario.apellido = tbApellido.Text;
-            usuario.mail = tbMail.Text;
+            if (tbMail.Text != "" || tbMail.Text != null)
+            {
+                usuario.mail = tbMail.Text;
+            }
             usuario.password = tbPassword.Text;
             usuario.domicilio = tbDomicilio.Text;
             usuario.telefono = tbTelefono.Text;

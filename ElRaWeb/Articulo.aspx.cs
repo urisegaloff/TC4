@@ -15,11 +15,7 @@ public partial class Articulo : System.Web.UI.Page
     {
         if (!checkLogin())
         {
-            MasterPageFile = "~/MasterPage.master";
-        }
-        else
-        {
-            MasterPageFile = "~/MasterPageAutenticado.master";
+            Server.Transfer("Default.aspx", true);
         }
     }
 

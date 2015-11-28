@@ -140,7 +140,7 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@TagDescripcion"].Value = descripcion.Trim();
+                        comando.Parameters["@TagDescripion"].Value = descripcion.Trim();
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

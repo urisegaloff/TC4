@@ -37,11 +37,11 @@
                 <div class="panel panel-primary">
                     <div class="panel-body">
                         <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTipo">
-                            <Columns>                                
-                                <asp:BoundField DataField="idTipo" HeaderText="Cod. Tipo de Tag"></asp:BoundField>
-                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                
+                            <Columns>                                                               
                                 <asp:CommandField EditText="Editar" ShowEditButton="True" />
                                 <asp:CommandField DeleteText="Borrar" ShowDeleteButton="True" />                                
+                                <asp:CommandField EditText="<asp:ImageButton class='glyphicon glyphicon-edit' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowEditButton="True" />
+                                <asp:CommandField DeleteText="<asp:ImageButton class='glyphicon glyphicon-remove' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowDeleteButton="True" />
                             </Columns>
                         </asp:GridView>
                     </div>
