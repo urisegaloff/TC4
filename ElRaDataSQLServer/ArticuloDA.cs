@@ -113,11 +113,11 @@ namespace ElRaDataSQLServer
         }
 
 
-        public List<ArticuloEntity> CargarVidriera()
+        public List<ArticuloEntity> CargarVidriera(int Categoria)
         {
             try
             {
-                string strQuery = "SELECT p.Id_producto, p.descripcion, p.stock, p.precio FROM dbo.m_productos p INNER JOIN d_prod_cat pc ON p.Id_producto = pc.Id_producto and pc.id_categoria = 1";
+                string strQuery = "SELECT p.Id_producto, p.descripcion, p.stock, p.precio FROM dbo.m_productos p INNER JOIN d_prod_cat pc ON p.Id_producto = pc.Id_producto and pc.id_categoria = " + Categoria;
                 List<ArticuloEntity> articulo = new List<ArticuloEntity>();
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())

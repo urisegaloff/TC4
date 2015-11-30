@@ -121,11 +121,11 @@ namespace ElRaBusiness
             }
         }
 
-        public List<ArticuloEntity> CargarVidriera()
+        public List<ArticuloEntity> CargarVidriera(int Categoria)
         {
             try
             {
-               return daArticulo.CargarVidriera();
+               return daArticulo.CargarVidriera(Categoria);
             }
             catch (ExcepcionDA ex)
             {

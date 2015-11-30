@@ -46,7 +46,7 @@
             </div>
 			<br />
             <div class="container-fluid">
-                <div class="panel panel-primary">
+                <div id="divPanel" class="panel panel-primary col-lg-6 col-lg-offset-3" visible="false" runat="server">
                     <div class="panel-body">
                         <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" HeaderStyle-BackColor="#80B1DC" AlternatingRowStyle-BackColor="WhiteSmoke" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="mail">
                             <Columns>

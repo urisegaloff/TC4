@@ -82,9 +82,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ddCategorias">
                             <li><a href="Equipos.aspx">Equipos</a></li>
-                            <li><a href="#">Perifericos</a></li>
-                            <li><a href="#">Pantallas</a></li>
-                            <li><a href="#">TV, Audio y Video</a></li>
+                            <li><a href="Perifericos.aspx">Perifericos</a></li>
+                            <li><a href="Pantallas.aspx">Pantallas</a></li>
+                            <li><a href="TvAudioVideo.aspx">TV, Audio y Video</a></li>
                         </ul>
                     </li>
                     <li>
@@ -98,7 +98,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <!-- Dirige a Usuarios, pero debería dirigir al perfil una vez armada la página -->
-                        <a href="Usuarios.aspx"><asp:Label runat="server" ID="lblPerfil"></asp:Label></a> 
+                        <a href="Perfil.aspx"><asp:Label runat="server" ID="lblPerfil"></asp:Label></a> 
                     </li>
                     <li>
                         <asp:LinkButton ID="lbtnPerfil" OnClick="lbtnPerfil_Click" runat="server">Cerrar Sesión</asp:LinkButton>

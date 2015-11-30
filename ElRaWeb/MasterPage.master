@@ -13,7 +13,7 @@
             
         }
         body {
-            background: url(http://kcoletrodesign.com/wordpress/wp-content/uploads/2014/04/dreamstime_l_34259408.jpg) no-repeat center center fixed; 
+            background-image:url("img\fondo.jpg");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -83,9 +83,9 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ddCategorias">
                             <li><a href="Equipos.aspx">Equipos</a></li>
-                            <li><a href="#">Perifericos</a></li>
-                            <li><a href="#">Pantallas</a></li>
-                            <li><a href="#">TV, Audio y Video</a></li>
+                            <li><a href="Perifericos.aspx">Perifericos</a></li>
+                            <li><a href="Pantallas.aspx">Pantallas</a></li>
+                            <li><a href="TvAudioVideo.aspx">TV, Audio y Video</a></li>
                         </ul>
                     </li>
                     <li>

@@ -36,7 +36,7 @@
             <div class="container-fluid">
                 <div id="divPanel" class="panel panel-primary" visible="false" runat="server">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTag">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered" HeaderStyle-BackColor="#80B1DC" AlternatingRowStyle-BackColor="WhiteSmoke" runat="server" AutoGenerateColumns="False" OnRowCreated="dgResultados_RowCreated" OnRowDeleting="dgResultados_RowDeleting" OnRowEditing="dgResultados_RowEditing" DataKeyNames="idTag">
                             <Columns>
                                 <asp:BoundField DataField="idTag" HeaderText="Cod. de Tag"></asp:BoundField>
                                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>                                

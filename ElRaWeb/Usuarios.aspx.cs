@@ -43,6 +43,7 @@ public partial class Usuarios : System.Web.UI.Page
 
     protected void btnBuscar_Click(object sender, System.EventArgs e)
     {
+        divPanel.Visible = true;
         BuscarUsuarios();
     }
 
@@ -50,7 +51,7 @@ public partial class Usuarios : System.Web.UI.Page
     protected void btnNuevo_Click(object sender, System.EventArgs e)
     {
         // Se transfiere la ejecución a la página de carga y modificación de empleado.
-        Server.Transfer("Registro.aspx");
+        Server.Transfer("UsuarioNuevo.aspx");
     }
 
 

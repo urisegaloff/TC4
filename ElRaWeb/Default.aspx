@@ -2,15 +2,19 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" Runat="Server">
-<div class="container">
-    <table>
-        <tr>
-        <td>Configuración 1:</td>
-        <td><asp:Label runat="server" ID="lblConfig1"></asp:Label></td>
-        </tr>
-    </table>
-</div>
+<asp:Content ID="cphDefaultHeader" ContentPlaceHolderID="cphHeader" runat="server">
+    <style>
+        .carousel-caption{
+            color: #44A9FF; 
+        }
+        
+        .carousel-indiators{
+            color: #44A9FF;
+        }
+    </style>
+</asp:Content>
+
+<asp:Content ID="cphDefault" ContentPlaceHolderID="cphBody" Runat="Server">
 <div class="container">
     <div id="carousel" class="carousel slide" data-ride="carousel">
         <!-- Indicadores -->
@@ -22,21 +26,21 @@
         <!-- Envoltura por cada slide -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="http://www.sisaypc.net/themes/ap_funiture/img/modules/leosliderlayer/logitech1170.jpg" alt="Alto monitor">
+                <img src="img\AudioVid.png" alt="Alto monitor">
                 <div class="carousel-caption">
-                    Un monitor de punta
+                    El mejor audio y video para tu hogar
                 </div>
             </div>
             <div class="item">
-                <img src="http://www.sisaypc.net/themes/ap_funiture/img/modules/leosliderlayer/conceptronic1170.jpg" alt="...">
+                <img src="img\mbaio.jpg" alt="...">
                 <div class="carousel-caption">
-                    Una pc super gamer
+                    Computadoras con los mejores componentes
                 </div>
             </div>
             <div class="item">
-                <img src="http://adshop.com.vn/image/cache/catalog/Slide/slide3-adshop.com.vn-1170x300.jpg" alt="...">
+                <img src="img\nb.jpg" alt="...">
                 <div class="carousel-caption">
-                    Una mega notebook
+                    Notebooks de primer nivel
                 </div>
             </div>
         </div>
@@ -51,14 +55,6 @@
         </a>         
     </div>
 </div>    
-    <!--<table>
-        <tr>
-            <td>Configuración 2:</td>
-            <td><asp:Label runat="server" ID="lblConfig2"></asp:Label></td>
-        </tr>
-        <tr id="row">
-            <td>Hola</td>
-        </tr>
-    </table>-->
+   
 </asp:Content>
 
