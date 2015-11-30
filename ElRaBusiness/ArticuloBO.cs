@@ -121,5 +121,16 @@ namespace ElRaBusiness
             }
         }
 
+        public List<ArticuloEntity> CargarVidriera()
+        {
+            try
+            {
+               return daArticulo.CargarVidriera();
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("No se pudo realizar la registración del Articulo.", ex);
+            }
+        }
     }
 }

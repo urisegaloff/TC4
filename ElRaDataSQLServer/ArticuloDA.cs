@@ -30,6 +30,17 @@ namespace ElRaDataSQLServer
             return articulo;
         }
 
+        private ArticuloEntity ExponerArticulo(SqlDataReader cursor)
+        {
+            ArticuloEntity articulo = new ArticuloEntity();
+            articulo.idProducto = cursor.GetInt32(cursor.GetOrdinal("Id_Producto"));
+            articulo.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
+            articulo.stock = cursor.GetInt32(cursor.GetOrdinal("stock"));
+            articulo.precio = cursor.GetDecimal(cursor.GetOrdinal("precio"));
+
+            return articulo;
+        }
+
         private TagEntity CrearTag(SqlDataReader cursor)
         {
             TagEntity Tag = new TagEntity();
@@ -101,27 +112,25 @@ namespace ElRaDataSQLServer
             }
         }
 
-        /*
-        public ArticuloEntity BuscarArticulo(string email, string password)
+
+        public List<ArticuloEntity> CargarVidriera()
         {
             try
             {
-                ArticuloEntity articulo = null;
+                string strQuery = "SELECT p.Id_producto, p.descripcion, p.stock, p.precio FROM dbo.m_productos p INNER JOIN d_prod_cat pc ON p.Id_producto = pc.Id_producto and pc.id_categoria = 1";
+                List<ArticuloEntity> articulo = new List<ArticuloEntity>();
 
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("ArticuloBuscarPorID", conexion))
+                    using (SqlCommand comando = new SqlCommand(strQuery, conexion))
                     {
-                        comando.CommandType = CommandType.StoredProcedure;
-                        SqlCommandBuilder.DeriveParameters(comando);
-
-                        comando.Parameters["@ArticuloID"].Value = articulo.idProducto;
                         
+                  
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
-                            if (cursor.Read())
+                            while (cursor.Read())
                             {
-                                articulo = CrearArticulo(cursor);
+                                articulo.Add(ExponerArticulo(cursor));
                             }
 
                             cursor.Close();
@@ -138,7 +147,7 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
-         */
+  
 
 
         public List<ArticuloEntity> Buscar(string descripcion)

@@ -82,7 +82,7 @@
                             Categorias
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ddCategorias">
-                            <li><a href="#">Equipos</a></li>
+                            <li><a href="Equipos.aspx">Equipos</a></li>
                             <li><a href="#">Perifericos</a></li>
                             <li><a href="#">Pantallas</a></li>
                             <li><a href="#">TV, Audio y Video</a></li>
