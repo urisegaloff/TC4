@@ -64,7 +64,8 @@ public partial class Articulo : System.Web.UI.Page
         {
             ArticuloEntity Articulo = new ArticuloEntity();
 
-            Articulo.idProducto = Convert.ToInt32(tbID.Text);
+            //Articulo.idProducto = Convert.ToInt32(tbID.Text);
+            
             Articulo.descripcion = tbDescripcion.Text;
             Articulo.precio = Convert.ToDecimal(tbPrecio.Text);
             Articulo.stock = Convert.ToInt32(tbStock.Text);
@@ -72,14 +73,16 @@ public partial class Articulo : System.Web.UI.Page
 
             if (Convert.ToBoolean(ViewState["Nuevo"]))
             {
+                Articulo.idProducto = 0;
                 boArticulo.Registrar(Articulo);
             }
             else
             {
+                Articulo.idProducto = Convert.ToInt32(tbID.Text);
                 boArticulo.Actualizar(Articulo);
             }
 
-            //Context.Items.Add("ID", Articulo.idProducto);
+            Context.Items.Add("Descripcion", Articulo.descripcion);
             Server.Transfer("Articulos.aspx");
         }
         catch (ValidacionExcepcionAbstract ex)

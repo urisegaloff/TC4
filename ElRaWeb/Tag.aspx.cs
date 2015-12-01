@@ -39,10 +39,9 @@ public partial class Tag : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        ddlTipoTags.DataSource = boTipoTag.Buscar("");
         ddlTipoTags.DataTextField = "descripcion";
         ddlTipoTags.DataValueField = "idTipo";
-        ddlTipoTags.DataBind();
+        
         if (!Page.IsPostBack)
         {
             if (Context.Items.Contains("Tag"))
@@ -51,8 +50,8 @@ public partial class Tag : System.Web.UI.Page
 
                 tbID.Text = Convert.ToString(entidad.idTag);
                 tbDescripcion.Text = entidad.descripcion;
-                ddlTipoTags.SelectedItem.Value = entidad.idTipo;
-                //ddlTipoTags.DataSource = boTipoTag.BuscarTipoAsociado(entidad.idTag);
+                //ddlTipoTags.SelectedItem.Value = entidad.idTipo;
+                ddlTipoTags.DataSource = boTipoTag.BuscarTipoAsociado(entidad.idTag);
 
                 tbID.Enabled = false;
                 ViewState.Add("Nuevo", false);
@@ -62,10 +61,14 @@ public partial class Tag : System.Web.UI.Page
                 // Se agrega en el objeto ViewState una entrada que indica
                 // que el empleado es nuevo.
                 ViewState.Add("Nuevo", true);
+                ddlTipoTags.DataSource = boTipoTag.Buscar("");
+
             }
 
-
+        }else{
+            ddlTipoTags.DataSource = boTipoTag.Buscar("");
         }
+        ddlTipoTags.DataBind();
     }
 
     protected void btnRegistro_Click(object sender, EventArgs e)

@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class ="panel-footer">
-                        
+                        <asp:Label ID="lblAviso" CssClass="alert-info" runat="server"></asp:Label>
                    </div>
                 </div>
             </div>

@@ -12,9 +12,19 @@ using ElRaWebUtil;
 public partial class Articulos : System.Web.UI.Page
 {
     private ArticuloBO boArticulo = new ArticuloBO();
+    private string sDescripcion;
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            if (Context.Items.Contains("Descripcion"))
+            {
 
+                sDescripcion = Convert.ToString(Context.Items["Descripcion"]);
+                lblAviso.Text = sDescripcion + " registrado exitosamente";
+                lblAviso.Visible = true;
+            }
+        }
     }
 
 

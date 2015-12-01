@@ -14,8 +14,7 @@
                     <div class="panel-body">                    
                         <div class="form-group">
                             <div class="input-group">
-                                <span class="input-group-addon" id="sp1"">ID</span>
-                                <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp1" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="tbID" class="form-control" aria-describedby="sp1" Visible ="false" runat="server"></asp:TextBox>
                             </div>
                             <asp:RequiredFieldValidator ID="valTbId" ValidationGroup="valAltaArticulo" ControlToValidate="tbID" runat="server" ErrorMessage="Campo obligatorio"></asp:RequiredFieldValidator>
                         </div>
