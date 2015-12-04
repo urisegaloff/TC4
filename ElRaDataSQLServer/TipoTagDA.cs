@@ -191,6 +191,30 @@ namespace ElRaDataSQLServer
             }
         }
 
+
+        public void Eliminar(int idTipoTag)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("EliminarTipoTag", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@TipoTagID"].Value = idTipoTag;
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al eliminar el Tipo de Tag.", ex);
+            }
+        }
+
         #endregion Métodos Públicos
     }
 }

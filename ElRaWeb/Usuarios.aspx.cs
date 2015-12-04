@@ -81,8 +81,9 @@ public partial class Usuarios : System.Web.UI.Page
         {
             // Se busca el empleado por el legajo y se lo borra.
             //boUsuario.Eliminar(dgResultados.DataKeys[e.RowIndex].Value.ToString());
+            boUsuario.Eliminar(Convert.ToInt32(dgResultados.DataKeys[e.RowIndex].Value.ToString()));
             // Se recarga la grilla.
-            BuscarUsuarios();
+            //BuscarUsuarios();
         }
         catch (Exception ex)
         {

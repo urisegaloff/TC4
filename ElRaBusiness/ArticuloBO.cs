@@ -69,6 +69,18 @@ namespace ElRaBusiness
             }
         }
 
+        public void Eliminar(int idProducto)
+        {
+            try
+            {
+                daArticulo.Eliminar(idProducto);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error", ex);
+            }
+        }
+
 
         public void Registrar(ArticuloEntity Articulo)
         {

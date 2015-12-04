@@ -243,7 +243,31 @@ namespace ElRaDataSQLServer
             {
                 throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
-        } 
+        }
+
+
+        public void Eliminar(int idUsuario)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("EliminarUsuario", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UsuarioID"].Value = idUsuario;
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al eliminar el Usuario.", ex);
+            }
+        }
 
         #endregion Métodos Públicos
     }

@@ -67,5 +67,17 @@ namespace ElRaBusiness
                 throw new ExcepcionBO("No se pudo realizar la registración del Tipo de Tag.", ex);
             }
         }
+
+        public void Eliminar(int idTipoTag)
+        {
+            try
+            {
+                daTipoTag.Eliminar(idTipoTag);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error", ex);
+            }
+        }
     }
 }

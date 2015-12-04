@@ -161,6 +161,31 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por descripcion.", ex);
             }
         }
+
+        public void Eliminar(int idTag)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("EliminarTag", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@TagID"].Value = idTag;
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al eliminar el Tag.", ex);
+            }
+        }
+
+
         #endregion Métodos Públicos
     }
 }

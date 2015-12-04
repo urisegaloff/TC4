@@ -83,9 +83,12 @@ public partial class Articulos : System.Web.UI.Page
         try
         {
             // Se busca el empleado por el legajo y se lo borra.
-            //boArticulo.Eliminar(dgResultados.DataKeys[e.RowIndex].Value.ToString());
+            boArticulo.Eliminar(Convert.ToInt32(dgResultados.DataKeys[e.RowIndex].Value.ToString()));
+
+            //boArticulo.BuscarPorClavePrimaria(Convert.ToInt32(dgResultados.DataKeys[e.NewEditIndex].Value.ToString())));
+
             // Se recarga la grilla.
-            BuscarArticulos();
+            //BuscarArticulos();
         }
         catch (Exception ex)
         {

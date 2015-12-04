@@ -112,6 +112,29 @@ namespace ElRaDataSQLServer
             }
         }
 
+        public void Eliminar(int idProducto)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("EliminarArticulo", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@ArticuloID"].Value = idProducto;
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al eliminar el articulo.", ex);
+            }
+        }
+
 
         public List<ArticuloEntity> CargarVidriera(int Categoria)
         {

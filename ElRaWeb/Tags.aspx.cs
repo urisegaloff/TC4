@@ -74,8 +74,9 @@ public partial class Tags : System.Web.UI.Page
         {
             // Se busca el empleado por el legajo y se lo borra.
             //boTag.Eliminar(dgResultados.DataKeys[e.RowIndex].Value.ToString());
+            boTag.Eliminar(Convert.ToInt32(dgResultados.DataKeys[e.RowIndex].Value.ToString()));
             // Se recarga la grilla.
-            BuscarTags();
+            //BuscarTags();
         }
         catch (Exception ex)
         {

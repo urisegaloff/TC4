@@ -104,5 +104,17 @@ namespace ElRaBusiness
                 throw new ExcepcionBO("No se pudo realizar la registración del Usuario.", ex);
             }
         }
+
+        public void Eliminar(int idUsuario)
+        {
+            try
+            {
+                daUsuario.Eliminar(idUsuario);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error", ex);
+            }
+        }
     }
 }
