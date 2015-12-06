@@ -50,7 +50,13 @@ public partial class Perifericos : System.Web.UI.Page
 
         vidriera.DataSource = a;
         vidriera.DataBind();
+    }
 
-
+    protected void btnAgregarACarrito_Click(object sender, System.EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            Server.Transfer("Login.aspx", true);
+        }
     }
 }

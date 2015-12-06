@@ -19,8 +19,11 @@
                         <div class="panel-body">
                             <asp:Image ID="imgEquipo" Width="215px" Height="215px" ImageUrl="img\nbpc.jpg" runat="server" />
                         </div>
-                        <div class="panel-footer">
+                        <div class="panel-footer">                            
                             <asp:Label ID="lblPrecioArt" Text='<%# "$"+Eval("precio") %>' runat="server"></asp:Label>
+                            <div class="text-right">
+                                <asp:LinkButton ID="btnAgregarACarrito"  CssClass="btn btn-primary" OnClick="btnAgregarACarrito_Click" runat="server"><span id="descBTN" class="glyphicon glyphicon-shopping-cart"></span></asp:LinkButton>
+                            </div>
                         </div>
                     </div>
                 </div>

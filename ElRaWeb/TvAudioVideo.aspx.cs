@@ -53,4 +53,12 @@ public partial class TvAudioVideo : System.Web.UI.Page
 
 
     }
+
+    protected void btnAgregarACarrito_Click(object sender, System.EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            Server.Transfer("Login.aspx", true);
+        }
+    }
 }

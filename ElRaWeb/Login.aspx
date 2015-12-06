@@ -50,7 +50,7 @@
                              Tus datos son confidenciales y no serán publicados sin tu permiso.
                           </p>
                           <hr />
-                          <asp:Button ID="btnRegistrar" CssClass="btn btn-primary" runat="server" Text="Registrate" />
+                          <asp:Button ID="btnRegistrar" CssClass="btn btn-primary" OnClick="btnRegistrar_Click" runat="server" Text="Registrate" />
                     </div>
                 </div>
             </div>
