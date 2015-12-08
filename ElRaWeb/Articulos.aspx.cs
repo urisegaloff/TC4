@@ -73,16 +73,10 @@ public partial class Articulos : System.Web.UI.Page
         }
     }
 
-    /// <summary>
-    /// Si se presiona el link "Borrar" de la grilla.
-    /// </summary>
-    /// <param name="source"></param>
-    /// <param name="e">Referencia a la fila en la cual se presionó.</param>
     protected void dgResultados_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         try
         {
-            // Se busca el empleado por el legajo y se lo borra.
             boArticulo.Eliminar(Convert.ToInt32(dgResultados.DataKeys[e.RowIndex].Value.ToString()));
 
             //boArticulo.BuscarPorClavePrimaria(Convert.ToInt32(dgResultados.DataKeys[e.NewEditIndex].Value.ToString())));

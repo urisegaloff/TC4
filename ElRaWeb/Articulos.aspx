@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="panel panel-primary">
                      <div class="panel-heading text-center">
-                        <h4 class="h4">Buscar Articulo</h4>
+                        <h4 class="h4">ABM Articulo</h4>
                     </div>
                       <div class="panel-body">                    
                             <div class="form-group">

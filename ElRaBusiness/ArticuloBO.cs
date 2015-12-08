@@ -144,5 +144,10 @@ namespace ElRaBusiness
                 throw new ExcepcionBO("No se pudo realizar la registración del Articulo.", ex);
             }
         }
+
+        public int AgregarACarrito(string idCarrito, string idArticulo, string idCantidad)
+        {
+           return daArticulo.AgregarACarrito(idCarrito, idArticulo, idCantidad);
+        }
     }
 }

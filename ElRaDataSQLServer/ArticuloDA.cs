@@ -390,6 +390,30 @@ namespace ElRaDataSQLServer
             }
         }
 
+        public int AgregarACarrito(string idCarrito, string idArticulo, string idCantidad)
+        {
+            int hecho;
+            try
+            {
+                string strQuery = "INSERT INTO t_carrito values(" + idCarrito + "," + idArticulo + "," + idCantidad + ")";
+                List<ArticuloEntity> articulo = new List<ArticuloEntity>();
+
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand(strQuery, conexion))
+                    {
+                        hecho = comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+
+                return hecho;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
         #endregion Métodos Públicos
     }
 }
