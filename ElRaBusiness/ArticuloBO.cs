@@ -145,9 +145,9 @@ namespace ElRaBusiness
             }
         }
 
-        public int AgregarACarrito(string idCarrito, string idArticulo, string idCantidad)
+        public int AgregarACarrito(string idUsuario, string idArticulo, string idCantidad)
         {
-           return daArticulo.AgregarACarrito(idCarrito, idArticulo, idCantidad);
+            return daArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
         }
     }
 }

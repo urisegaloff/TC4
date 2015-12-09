@@ -390,24 +390,26 @@ namespace ElRaDataSQLServer
             }
         }
 
-        public int AgregarACarrito(string idCarrito, string idArticulo, string idCantidad)
+        public int AgregarACarrito(string idUsuario, string idArticulo, string idCantidad)
         {
             int hecho;
             try
             {
-                string strQuery = "INSERT INTO t_carrito values(" + idCarrito + "," + idArticulo + "," + idCantidad + ")";
-                List<ArticuloEntity> articulo = new List<ArticuloEntity>();
-
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand(strQuery, conexion))
+                    using (SqlCommand comando = new SqlCommand("AgregarProductoCarrito", conexion))
                     {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UserID"].Value = idUsuario;
+                        comando.Parameters["@ProductoID"].Value = idArticulo;
+                        comando.Parameters["@Cantidad"].Value = idCantidad;
                         hecho = comando.ExecuteNonQuery();
                     }
                     conexion.Close();
+                    return hecho;
                 }
-
-                return hecho;
             }
             catch (Exception ex)
             {

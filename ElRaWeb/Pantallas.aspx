@@ -20,7 +20,7 @@
                             <asp:Label ID="lblNombreArt" Text='<%# Eval("descripcion") %>' runat="server"></asp:Label>
                         </div>
                         <div class="panel-body">
-                            <asp:Image ID="imgEquipo" Width="215px" Height="215px" ImageUrl="img\Audio.jpg" runat="server" />
+                            <asp:Image ID="imgEquipo" Width="215px" Height="215px" ImageUrl="img\pantalla.jpg" runat="server" />
                         </div>
                         <div class="panel-footer text-center">                            
                             <asp:Label ID="lblPrecioArt" Text='<%# "$"+Eval("precio") %>' runat="server"></asp:Label>

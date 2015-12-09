@@ -57,7 +57,7 @@ public partial class TvAudioVideo : System.Web.UI.Page
 
     protected void mostrarAlerta(int num)
     {
-        if (num == 0)
+        if (num < 1)
         {
             alertNOT.Visible = true;
             alertOK.Visible = false;
@@ -70,7 +70,7 @@ public partial class TvAudioVideo : System.Web.UI.Page
     }
 
     protected void vidriera_ItemCommand(object sender, DataListCommandEventArgs e)
-    {   
+    {
         if (!checkLogin())
         {
             Server.Transfer("Login.aspx", true);
@@ -83,12 +83,13 @@ public partial class TvAudioVideo : System.Web.UI.Page
 
                     HiddenField hfIdProducto = (HiddenField)e.Item.FindControl("hfIdProducto");
                     TextBox tbCantidad = (TextBox)e.Item.FindControl("tbCantidad");
+                    string idUsuario = Session["idusuario"].ToString();
                     var idArticulo = hfIdProducto.Value;
                     var idCantidad = tbCantidad.Text;
-                    int res = boArticulo.AgregarACarrito("1", idArticulo, idCantidad);
+                    int res = boArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
                     mostrarAlerta(res);
-                break;
-            } 
+                    break;
+            }
         }
     }
 }
