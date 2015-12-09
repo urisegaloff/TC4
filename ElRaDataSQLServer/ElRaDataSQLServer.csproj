@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticuloDA.cs" />
+    <Compile Include="CarritoDA.cs" />
     <Compile Include="ConexionDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagDA.cs" />

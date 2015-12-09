@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArticuloEntity.cs" />
+    <Compile Include="CarritoEntity.cs" />
     <Compile Include="DatosObligatoriosExcepcion.cs" />
     <Compile Include="EmailExcepcion.cs" />
     <Compile Include="FechaNacimientoExcepcion.cs" />

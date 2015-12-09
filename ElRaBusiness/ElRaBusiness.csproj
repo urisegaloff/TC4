@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ArticuloBO.cs" />
     <Compile Include="AutenticacionExcepcionBO.cs" />
+    <Compile Include="CarritoBO.cs" />
     <Compile Include="EmailExisteExcepcionBO.cs" />
     <Compile Include="ExcepcionBO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
