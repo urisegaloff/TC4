@@ -47,7 +47,7 @@ public partial class Perifericos : System.Web.UI.Page
 
         ArticuloBO articulo = new ArticuloBO();
 
-        List<ArticuloEntity> a = articulo.CargarVidriera(4);
+        List<ArticuloEntity> a = articulo.CargarVidriera(2);
 
         vidriera.DataSource = a;
         vidriera.DataBind();
@@ -57,7 +57,7 @@ public partial class Perifericos : System.Web.UI.Page
 
     protected void mostrarAlerta(int num)
     {
-        if (num == 0)
+        if (num < 0)
         {
             alertNOT.Visible = true;
             alertOK.Visible = false;
@@ -83,9 +83,10 @@ public partial class Perifericos : System.Web.UI.Page
 
                     HiddenField hfIdProducto = (HiddenField)e.Item.FindControl("hfIdProducto");
                     TextBox tbCantidad = (TextBox)e.Item.FindControl("tbCantidad");
+                    string idUsuario = Session["idusuario"].ToString();
                     var idArticulo = hfIdProducto.Value;
                     var idCantidad = tbCantidad.Text;
-                    int res = boArticulo.AgregarACarrito("1", idArticulo, idCantidad);
+                    int res = boArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
                     mostrarAlerta(res);
                     break;
             }
