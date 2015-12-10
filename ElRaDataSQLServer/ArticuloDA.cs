@@ -402,13 +402,13 @@ namespace ElRaDataSQLServer
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@UserID"].Value = idUsuario;
-                        comando.Parameters["@ProductoID"].Value = idArticulo;
-                        comando.Parameters["@Cantidad"].Value = idCantidad;
-                        hecho = comando.ExecuteNonQuery();
+                        comando.Parameters["@UserID"].Value = Convert.ToInt32(idUsuario);
+                        comando.Parameters["@ProductoID"].Value = Convert.ToInt32(idArticulo);
+                        comando.Parameters["@Cantidad"].Value = Convert.ToInt32(idCantidad);
+                        comando.ExecuteNonQuery();
                     }
                     conexion.Close();
-                    return hecho;
+                    return 1;
                 }
             }
             catch (Exception ex)

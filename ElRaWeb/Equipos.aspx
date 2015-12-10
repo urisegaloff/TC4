@@ -25,10 +25,11 @@
                         <div class="panel-footer text-center">                            
                             <asp:Label ID="lblPrecioArt" Text='<%# "$"+Eval("precio") %>' runat="server"></asp:Label>
                             <asp:LinkButton ID="btnAgregarACarrito" CssClass="btn btn-primary" CommandName="btnAgregarACarrito" runat="server"><span class="glyphicon glyphicon-shopping-cart"></span></asp:LinkButton>
-                            <asp:TextBox ID="tbCantidad" BorderWidth="1px" style="text-align:center" BorderColor="#337AB7" Width="30" Height="27px" runat="server">1</asp:TextBox>
+                            <asp:TextBox ID="tbCantidad" OnChange="javascript:document.getElementById('hfCantidad') = document.getElementById('tbCantidad')" BorderWidth="1px" style="text-align:center" BorderColor="#337AB7" Width="30" Height="27px" runat="server">1</asp:TextBox>
                         </div>
                     </div>
                     <asp:HiddenField id="hfIdProducto" value='<%# Eval("idProducto") %>' runat="server" />
+                    <asp:HiddenField id="hfCantidad" Value="1" runat="server" />
                 </div>
             </ItemTemplate>
         </asp:DataList>

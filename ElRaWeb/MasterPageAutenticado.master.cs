@@ -17,4 +17,10 @@ public partial class MasterPageAutenticado : System.Web.UI.MasterPage
         Session.RemoveAll();
         Response.Redirect("Default.aspx");
     }
+
+    protected void lbtnCarrito_Click(Object sender, EventArgs e) 
+    {
+        //Session.RemoveAll();
+        Response.Redirect("CarritoUsr.aspx");
+    }
 }

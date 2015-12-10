@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageHerramientas.master" AutoEventWireup="true" CodeFile="CarritoUsr.aspx.cs" Inherits="CarritoUsr" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageAutenticado.master" AutoEventWireup="true" CodeFile="CarritoUsr.aspx.cs" Inherits="CarritoUsr" %>
 
 <asp:Content ID="HeaderContentArticulos" ContentPlaceHolderID="cphHeader" runat="server">
     
@@ -7,26 +7,19 @@
      <div class="form-inline " id="formUsuarios" runat="server" >
         <div class="panel-group">
             <div class="container-fluid">
-                <div class="panel panel-primary">
-                     <div class="panel-heading text-center">
-                        <h4 class="h4">Buscar Articulo</h4>
-                    </div>
-                    <div class="panel-body">                    
-                    </div>
-                    <div class ="panel-footer">
-                        
-                   </div>
-                </div>
+                <div id="alertOK" class="alert alert-success text-center" visible="false" role="alert" runat="server"><strong>¡Hecho!</strong> El producto se eliminó satisfactoriamente</div>
+                <div id="alertNOT" class="alert alert-danger text-center" visible="false" role="alert" runat="server"><strong>¡Error!</strong> No se pudo eliminar el producto.</div>
             </div>
             <br />
             <div class="container-fluid">
                 <div class="panel panel-primary col-lg-6 col-lg-offset-3">
                     <div class="panel-body">
-                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowEditing="dgResultados_RowEditing" DataKeyNames="IdProducto">
+                        <asp:GridView id="dgResultados" CssClass="table table-condensed table-bordered table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowDeleting="dgResultados_RowDeleting" DataKeyNames="IdProducto">
                             <Columns>
                                 <asp:BoundField DataField="IdProducto" HeaderText="# Prod" ItemStyle-Width="20%"></asp:BoundField>
-                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>        
-                                <asp:CommandField EditText="<asp:ImageButton class='glyphicon glyphicon-edit' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowEditButton="True" />
+                                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion"></asp:BoundField>
+                                <asp:BoundField DataField="Precio" HeaderText="Precio"></asp:BoundField>
+                                <asp:BoundField DataField="stock" HeaderText="Cantidad"></asp:BoundField>
                                 <asp:CommandField DeleteText="<asp:ImageButton class='glyphicon glyphicon-remove' runat='server' />" ItemStyle-HorizontalAlign="Center" ItemStyle-VerticalAlign="Middle" ShowDeleteButton="True" />                            
                             </Columns>
                         </asp:GridView>

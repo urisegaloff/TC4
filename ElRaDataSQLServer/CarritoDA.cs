@@ -32,6 +32,8 @@ namespace ElRaDataSQLServer
             articulo.idProducto = cursor.GetInt32(cursor.GetOrdinal("idProducto"));
             //Tag.idTipo = cursor.GetString(cursor.GetOrdinal("id_tipo"));
             articulo.descripcion = cursor.GetString(cursor.GetOrdinal("descripcion"));
+            articulo.precio = cursor.GetDecimal(cursor.GetOrdinal("precio"));
+            articulo.stock = cursor.GetInt32(cursor.GetOrdinal("cantidad"));
             //Tag.fecha_alta = cursor.GetDateTime(cursor.GetOrdinal("fecha_alta"));
             //Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
             return articulo;
@@ -66,7 +68,7 @@ namespace ElRaDataSQLServer
             }
         }
 
-        public void Eliminar(int idCarrito)
+        public int Eliminar(int idCarrito)
         {
             try
             {
@@ -81,11 +83,12 @@ namespace ElRaDataSQLServer
                         comando.ExecuteNonQuery();
                     }
                     conexion.Close();
+                    return 1;
                 }
             }
             catch (Exception ex)
             {
-                throw new ExcepcionDA("Se produjo un error al eliminar el Carrito.", ex);
+                return 0;
             }
         }
 
@@ -95,13 +98,13 @@ namespace ElRaDataSQLServer
             {
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("EliminarCarrito", conexion))
+                    using (SqlCommand comando = new SqlCommand("QuitarProductoCarrito", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@CarritoID"].Value = idCarrito;
-                        comando.Parameters["@CarritoIdProducto"].Value = idProducto;
+                        comando.Parameters["@UserID"].Value = idCarrito;
+                        comando.Parameters["@ProductoID"].Value = idProducto;
                         comando.ExecuteNonQuery();
                     }
                     conexion.Close();
@@ -124,12 +127,12 @@ namespace ElRaDataSQLServer
             {
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("BuscarArticulos", conexion))
+                    using (SqlCommand comando = new SqlCommand("ConsultarCarritoAbierto", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@CarritoID"].Value = idCarrito;
+                        comando.Parameters["@UserID"].Value = idCarrito;
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {
@@ -150,6 +153,31 @@ namespace ElRaDataSQLServer
                 throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
+
+        public void Confirmar(int idCarrito)
+        {
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("ConfirmarCarrito", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UserID"].Value = idCarrito;
+                        comando.ExecuteNonQuery();
+                    }
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al eliminar el Carrito.", ex);
+            }
+        }
+
+
         #endregion Métodos Públicos
     }
 }

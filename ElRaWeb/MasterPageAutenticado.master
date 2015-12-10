@@ -104,7 +104,7 @@
                         <asp:LinkButton ID="lbtnPerfil" OnClick="lbtnPerfil_Click" runat="server">Cerrar Sesión</asp:LinkButton>
                     </li>
                     <li>
-                        <asp:LinkButton CssClass="btn btn-product" runat="server"><span class="glyphicon glyphicon-shopping-cart"></span></asp:LinkButton>
+                        <asp:LinkButton ID="lbtnCarrito" OnClick="lbtnCarrito_Click" CssClass="btn btn-product" runat="server"><span class="glyphicon glyphicon-shopping-cart"></span></asp:LinkButton>
                     </li>
                 </ul>
             </div>

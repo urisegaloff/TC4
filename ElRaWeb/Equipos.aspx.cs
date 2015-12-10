@@ -80,12 +80,13 @@ public partial class Equipos : System.Web.UI.Page
             switch (e.CommandName)
             {
                 case "btnAgregarACarrito":
-
+                    
                     HiddenField hfIdProducto = (HiddenField)e.Item.FindControl("hfIdProducto");
-                    TextBox tbCantidad = (TextBox)e.Item.FindControl("tbCantidad");
+                    HiddenField hFCantidad = (HiddenField)e.Item.FindControl("hFCantidad");
+                    //TextBox tbCantidad = (TextBox)e.Item.FindControl("tbCantidad");
                     string idUsuario = Session["idusuario"].ToString();
                     var idArticulo = hfIdProducto.Value;
-                    var idCantidad = tbCantidad.Text;
+                    var idCantidad = hFCantidad.Value;
                     int res = boArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
                     mostrarAlerta(res);
                     break;

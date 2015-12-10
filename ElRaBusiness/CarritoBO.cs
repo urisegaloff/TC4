@@ -30,15 +30,15 @@ namespace ElRaBusiness
             }
         }
 
-        public void Eliminar(int idCarrito)
+        public int Eliminar(int idCarrito)
         {
             try
             {
-                daCarrito.Eliminar(idCarrito);
+               return daCarrito.Eliminar(idCarrito);
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error al eliminar el carrito", ex);
+                return 0;
             }
         }
 
@@ -63,6 +63,19 @@ namespace ElRaBusiness
             catch (ExcepcionDA ex)
             {
                 throw new ExcepcionBO("Error en la búsqueda de los Articulos del carrito.", ex);
+            }
+        }
+
+
+        public void Confirmar(int idCarrito)
+        {
+            try
+            {
+                daCarrito.Confirmar(idCarrito);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error al actualizar el carrito", ex);
             }
         }
 
