@@ -56,6 +56,7 @@
     <Compile Include="DatosObligatoriosExcepcion.cs" />
     <Compile Include="EmailExcepcion.cs" />
     <Compile Include="FechaNacimientoExcepcion.cs" />
+    <Compile Include="PedidosEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TagEntity.cs" />
     <Compile Include="TipoTagEntity.cs" />

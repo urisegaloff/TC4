@@ -67,6 +67,19 @@ namespace ElRaBusiness
         }
 
 
+        public List<PedidosEntity> BuscarPedidos(int idCarrito)
+        {
+            try
+            {
+                return daCarrito.BuscarPedidos(idCarrito);
+            }
+            catch (ExcepcionDA ex)
+            {
+                throw new ExcepcionBO("Error en la búsqueda de los Articulos del carrito.", ex);
+            }
+        }
+
+
         public void Confirmar(int idCarrito)
         {
             try

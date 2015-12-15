@@ -84,7 +84,7 @@ public partial class CarritoUsr : System.Web.UI.Page
     protected void btnEliminar_Click(object sender, System.EventArgs e)
     {
         // Se transfiere la ejecución a la página de carga y modificación de empleado.
-        int res = boCarrito.Eliminar(idUsuario);
+        int res = boCarrito.Eliminar(Convert.ToInt32(Session["idusuario"]));
         mostrarAlerta(res);
         //Server.Transfer("Articulo.aspx");
     }    

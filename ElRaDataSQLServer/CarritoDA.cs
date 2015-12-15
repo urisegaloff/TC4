@@ -38,6 +38,17 @@ namespace ElRaDataSQLServer
             //Tag.fecha_baja = cursor.GetDateTime(cursor.GetOrdinal("fecha_baja"));
             return articulo;
         }
+        private PedidosEntity CrearPedido(SqlDataReader cursor)
+        {
+            PedidosEntity pedido = new PedidosEntity();
+            pedido.id_pedido = cursor.GetInt32(cursor.GetOrdinal("id_pedido"));
+            pedido.idUsuario = cursor.GetInt32(cursor.GetOrdinal("id_usuario"));            
+            pedido.IdProducto = cursor.GetInt32(cursor.GetOrdinal("idProducto"));
+            pedido.Descripcion= cursor.GetString(cursor.GetOrdinal("descripcion"));
+            pedido.Precio= cursor.GetDecimal(cursor.GetOrdinal("precio"));
+            pedido.cantidad = cursor.GetInt32(cursor.GetOrdinal("cantidad"));
+            return pedido;
+        }
 
         #endregion Métodos Privados
 
@@ -174,6 +185,41 @@ namespace ElRaDataSQLServer
             catch (Exception ex)
             {
                 throw new ExcepcionDA("Se produjo un error al eliminar el Carrito.", ex);
+            }
+        }
+
+        public List<PedidosEntity> BuscarPedidos(int idCarrito)
+        {
+            // Lista de objetos con datos de empleados.
+            List<PedidosEntity> lpedidos = null;
+            try
+            {
+                using (SqlConnection conexion = ConexionDA.ObtenerConexion())
+                {
+                    using (SqlCommand comando = new SqlCommand("TraerPedidos", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        SqlCommandBuilder.DeriveParameters(comando);
+
+                        comando.Parameters["@UserID"].Value = idCarrito;
+
+                        using (SqlDataReader cursor = comando.ExecuteReader())
+                        {
+                            lpedidos = new List<PedidosEntity>();
+                            while (cursor.Read())
+                            {
+                                lpedidos.Add(CrearPedido(cursor));
+                            }
+                            cursor.Close();
+                        }
+                    }
+                    conexion.Close();
+                }
+                return lpedidos;
+            }
+            catch (Exception ex)
+            {
+                throw new ExcepcionDA("Se produjo un error al buscar por email y contraseña.", ex);
             }
         }
 
