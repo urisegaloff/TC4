@@ -36,6 +36,7 @@ public partial class ArticuloTag : System.Web.UI.Page
             return false;
         }
     }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -69,7 +70,7 @@ public partial class ArticuloTag : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 
@@ -84,7 +85,7 @@ public partial class ArticuloTag : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 

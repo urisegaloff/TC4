@@ -65,7 +65,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error", ex);
+                
             }
         }
 
@@ -77,7 +77,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error", ex);
+                
             }
         }
 
@@ -145,9 +145,9 @@ namespace ElRaBusiness
             }
         }
 
-        public int AgregarACarrito(string idUsuario, string idArticulo, string idCantidad)
+        public int AgregarACarrito(string idUsuario, string idArticulo, string Cantidad)
         {
-            return daArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
+            return daArticulo.AgregarACarrito(idUsuario, idArticulo, Cantidad);
         }
     }
 }

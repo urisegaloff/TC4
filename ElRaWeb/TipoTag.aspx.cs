@@ -15,17 +15,13 @@ public partial class TipoTag : System.Web.UI.Page
     {
         if (!checkLogin())
         {
-            MasterPageFile = "~/MasterPage.master";
-        }
-        else
-        {
-            MasterPageFile = "~/MasterPageAutenticado.master";
+            Server.Transfer("Default.aspx", true);
         }
     }
 
     public bool checkLogin()
     {
-        if (Context.Items["ID"] != null)
+        if (Session["mail"] != null)
         {
             return true;
         }
@@ -34,6 +30,7 @@ public partial class TipoTag : System.Web.UI.Page
             return false;
         }
     }
+
     private TipoTagBO boTipoTag = new TipoTagBO();
     protected void Page_Load(object sender, EventArgs e)
     {

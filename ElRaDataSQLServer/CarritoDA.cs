@@ -130,7 +130,7 @@ namespace ElRaDataSQLServer
 
 
 
-        public List<ArticuloEntity> BuscarArticulos(int idCarrito)
+        public List<ArticuloEntity> BuscarArticulos(int IdUsuario)
         {
             // Lista de objetos con datos de empleados.
             List<ArticuloEntity> larticulos= null;
@@ -138,12 +138,12 @@ namespace ElRaDataSQLServer
             {
                 using (SqlConnection conexion = ConexionDA.ObtenerConexion())
                 {
-                    using (SqlCommand comando = new SqlCommand("ConsultarCarritoAbierto", conexion))
+                    using (SqlCommand comando = new SqlCommand("ConsultarCarritoConfirmado", conexion))
                     {
                         comando.CommandType = CommandType.StoredProcedure;
                         SqlCommandBuilder.DeriveParameters(comando);
 
-                        comando.Parameters["@UserID"].Value = idCarrito;
+                        comando.Parameters["@UserID"].Value = IdUsuario;
 
                         using (SqlDataReader cursor = comando.ExecuteReader())
                         {

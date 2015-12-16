@@ -12,6 +12,27 @@ using ElRaWebUtil;
 public partial class Usuarios : System.Web.UI.Page
 {
     private UsuarioBO boUsuario = new UsuarioBO();
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            Server.Transfer("Default.aspx", true);
+        }
+    }
+
+    public bool checkLogin()
+    {
+        if (Session["mail"] != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -36,7 +57,7 @@ public partial class Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 
@@ -61,12 +82,12 @@ public partial class Usuarios : System.Web.UI.Page
         {
             Context.Items.Add("Usuario", boUsuario.BuscarPorClavePrimaria(dgResultados.DataKeys[e.NewEditIndex].Value.ToString()));
             // Se transfiere la ejecución a la página de carga y modificación de empleado.
-            Server.Transfer("Registro.aspx");
+            Server.Transfer("UsuarioNuevo.aspx");
         }
         catch (Exception ex)
         {
             //Comentado porque muestra un error
-            //throw new ExcepcionBO("Error", ex);
+            //
         }
     }
 
@@ -87,7 +108,7 @@ public partial class Usuarios : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
     

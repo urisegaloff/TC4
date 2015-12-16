@@ -73,7 +73,7 @@ public partial class Registro : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
 
     }

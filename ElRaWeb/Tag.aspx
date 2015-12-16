@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Tag.aspx.cs" Inherits="Tag" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPageHerramientas.master" AutoEventWireup="true" CodeFile="Tag.aspx.cs" Inherits="Tag" %>
 
 <asp:Content ID="HeaderContentLogin" ContentPlaceHolderID="cphHeader" runat="server">
     
@@ -21,7 +21,7 @@
                             <div class="form-group"> 
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp2">Descripcion</span>
-                                    <asp:TextBox ID="tbDescripcion" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbDescripcion" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>                                      

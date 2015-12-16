@@ -87,7 +87,7 @@ namespace ElRaDataSQLServer
                         comando.Parameters["@UsuarioEmail"].Value = usuario.mail.Trim();
                         comando.Parameters["@UsuarioPassword"].Value = usuario.password.Trim();
                         comando.Parameters["@UsuarioTelefono"].Value = usuario.telefono.Trim();
-                        /*comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;*/
+                        comando.Parameters["@UsuarioIDPermiso"].Value = usuario.idPermiso;
                         comando.Parameters["@UsuarioDomicilio"].Value = usuario.domicilio.Trim();
 
                         comando.ExecuteNonQuery();

@@ -15,7 +15,7 @@ public partial class CarritoUsr : System.Web.UI.Page
     {
         if (!checkLogin())
         {
-            MasterPageFile = "~/MasterPage.master";
+            Server.Transfer("Default.aspx");
         }
         else
         {
@@ -66,7 +66,7 @@ public partial class CarritoUsr : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 
@@ -99,7 +99,7 @@ public partial class CarritoUsr : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 

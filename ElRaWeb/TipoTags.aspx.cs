@@ -12,6 +12,27 @@ using ElRaWebUtil;
 public partial class TipoTags : System.Web.UI.Page
 {
     private TipoTagBO boTipoTag = new TipoTagBO();
+
+    protected void Page_PreInit(object sender, EventArgs e)
+    {
+        if (!checkLogin())
+        {
+            Server.Transfer("Default.aspx", true);
+        }
+    }
+
+    public bool checkLogin()
+    {
+        if (Session["mail"] != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -30,7 +51,7 @@ public partial class TipoTags : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 
@@ -58,7 +79,7 @@ public partial class TipoTags : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 
@@ -79,7 +100,7 @@ public partial class TipoTags : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
     }
 

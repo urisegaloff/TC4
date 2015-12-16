@@ -45,7 +45,6 @@
                         <asp:Button type="button" id="btnMisPedidos" onclick="btnMisPedidos_Click" CssClass="btn btn-default" Text="Mis pedidos" runat="server" />
                         <asp:Button type="button" id="btnArticulos" onclick="btnArticulos_Click" CssClass="btn btn-default" Text="ABM Artículos" runat="server" />
                         <asp:Button type="button" id="btnTags" onclick="btnTags_Click" CssClass="btn btn-default" Text="ABM Tags" runat="server" />
-                        <asp:Button type="button" id="btnTagsxArticulo" onclick="btnTagsxArticulo_Click" CssClass="btn btn-default" Text="ABM Tags/Productos" runat="server" />
                         <asp:Button type="button" id="btnUsuarios" onclick="btnUsuarios_Click" CssClass="btn btn-default" Text="ABM Usuarios" runat="server" />
                         <asp:Button type="button" id="btnPedidos" onclick="btnPedidos_Click" CssClass="btn btn-default" Text="ABM Pedidos" runat="server" />
                     </div>

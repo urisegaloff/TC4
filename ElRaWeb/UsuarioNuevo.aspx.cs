@@ -54,6 +54,9 @@ public partial class Registro : System.Web.UI.Page
                     tbMail.Text = entidad.mail;
                     tbDomicilio.Text = entidad.domicilio;
                     tbPassword.Text = entidad.password;
+                    tbPermiso.Text = Convert.ToString(entidad.idPermiso);
+                    tbPermiso.Visible = true;
+                    spPermiso.Visible = true;
 
                     // Se deshabilita la carga del legajo porque es clave primaria.
                     tbMail.Enabled = false;
@@ -69,7 +72,7 @@ public partial class Registro : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            throw new ExcepcionBO("Error", ex);
+            
         }
 
     }
@@ -84,6 +87,14 @@ public partial class Registro : System.Web.UI.Page
             usuario.password = tbPassword.Text;
             usuario.domicilio = tbDomicilio.Text;
             usuario.telefono = tbTelefono.Text;
+            if (tbPermiso.Visible == true)
+            {
+                usuario.idPermiso = Convert.ToInt32(tbPermiso.Text);
+            }
+            else
+            {
+                usuario.idPermiso = 3;
+            }
 
 
             if (Convert.ToBoolean(ViewState["Nuevo"]))

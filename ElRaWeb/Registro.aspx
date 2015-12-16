@@ -15,38 +15,38 @@
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">E-Mail</span>
-                                    <asp:TextBox ID="tbMail" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbMail" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group"> 
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1">Contraseña</span>
-                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp1" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbPassword" class="form-control" aria-describedby="sp1" runat="server" ></asp:TextBox>
                                 </div>
                                 <asp:Label ID="Label1" runat="server" BackColor="White" EnableTheming="False" ForeColor="Red" Font-Bold="True"></asp:Label>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Nombre</span>
-                                    <asp:TextBox ID="tbNombre" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbNombre" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Apellido</span>
-                                    <asp:TextBox ID="tbApellido" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbApellido" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Telefono</span>
-                                    <asp:TextBox ID="tbTelefono" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbTelefono" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sp1"">Domicilio</span>
-                                    <asp:TextBox ID="tbDomicilio" class="form-control" aria-describedby="sp2" runat="server" required="true"></asp:TextBox>
+                                    <asp:TextBox ID="tbDomicilio" class="form-control" aria-describedby="sp2" runat="server" ></asp:TextBox>
                                 </div>
                             </div>
                             <hr />

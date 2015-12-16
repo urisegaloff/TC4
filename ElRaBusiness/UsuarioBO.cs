@@ -80,7 +80,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error", ex);
+                
             }
         }
 
@@ -113,7 +113,7 @@ namespace ElRaBusiness
             }
             catch (ExcepcionDA ex)
             {
-                throw new ExcepcionBO("Error", ex);
+                
             }
         }
     }

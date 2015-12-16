@@ -55,20 +55,6 @@ public partial class Equipos : System.Web.UI.Page
 
     }
 
-    protected void mostrarAlerta(int num)
-    {
-        if (num < 0)
-        {
-            alertNOT.Visible = true;
-            alertOK.Visible = false;
-        }
-        else
-        {
-            alertNOT.Visible = false;
-            alertOK.Visible = true;
-        }
-    }
-
     protected void vidriera_ItemCommand(object sender, DataListCommandEventArgs e)
     {
         if (!checkLogin())
@@ -82,13 +68,9 @@ public partial class Equipos : System.Web.UI.Page
                 case "btnAgregarACarrito":
                     
                     HiddenField hfIdProducto = (HiddenField)e.Item.FindControl("hfIdProducto");
-                    HiddenField hFCantidad = (HiddenField)e.Item.FindControl("hFCantidad");
-                    //TextBox tbCantidad = (TextBox)e.Item.FindControl("tbCantidad");
-                    string idUsuario = Session["idusuario"].ToString();
                     var idArticulo = hfIdProducto.Value;
-                    var idCantidad = hFCantidad.Value;
-                    int res = boArticulo.AgregarACarrito(idUsuario, idArticulo, idCantidad);
-                    mostrarAlerta(res);
+                    Context.Items.Add("IdArticulo",idArticulo);
+                    Server.Transfer("DetalleArticulo.aspx");
                     break;
             }
         }

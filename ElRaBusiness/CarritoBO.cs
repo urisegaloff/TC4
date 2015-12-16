@@ -54,11 +54,11 @@ namespace ElRaBusiness
             }
         }
 
-        public List<ArticuloEntity> BuscarArticulos(int idCarrito)
+        public List<ArticuloEntity> BuscarArticulos(int IdUsuario)
         {
             try
             {
-                return daCarrito.BuscarArticulos(idCarrito);
+                return daCarrito.BuscarArticulos(IdUsuario);
             }
             catch (ExcepcionDA ex)
             {
